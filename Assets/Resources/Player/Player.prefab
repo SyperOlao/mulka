@@ -247,7 +247,11 @@ PrefabInstance:
     - target: {fileID: -1529895594218572241, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e516cf479a3db244393e7763625739da, type: 2}
+      objectReference: {fileID: 2100000, guid: 1e79df82bac9298419d898b03d60d6ec, type: 2}
+    - target: {fileID: -1499899992508970852, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3251e831b575a1345b6d43a940aeb991, type: 2}
     - target: {fileID: -518347860187771050, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -260,6 +264,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea25b0b3399af2d40b815ca2fb92c18e, type: 2}
+    - target: {fileID: 6114685121637872573, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114685121637872573, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114685121637872573, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114685121637872573, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6114685121637872573, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
