@@ -751,6 +751,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6668595212460725788, guid: fb46749bb34ec144fb0df645426720d7, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b0658528f6866d340b1bc038d92875f8, type: 3}
+    - target: {fileID: 6668595212460725788, guid: fb46749bb34ec144fb0df645426720d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 93103167216a3c841aa01c36869b9bb1, type: 2}
     - target: {fileID: 8657079239721237082, guid: fb46749bb34ec144fb0df645426720d7, type: 3}
       propertyPath: MainCamera
       value: 
