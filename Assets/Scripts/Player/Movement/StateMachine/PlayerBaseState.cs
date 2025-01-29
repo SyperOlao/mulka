@@ -34,9 +34,10 @@ namespace Player.Movement.StateMachine
             StateMachine.transform.rotation = Quaternion.Slerp(StateMachine.transform.rotation, Quaternion.LookRotation(faceDirection), StateMachine.LookRotationDampFactor * Time.deltaTime);
         }
         
-        protected void Move()
+        protected void Move(int acceleration = 1)
         {
-            StateMachine.Controller.Move(StateMachine.Velocity * Time.deltaTime);
+            var deltaAcceleration = StateMachine.Velocity * acceleration;
+            StateMachine.Controller.Move(deltaAcceleration * Time.deltaTime);
         }
     }
 }

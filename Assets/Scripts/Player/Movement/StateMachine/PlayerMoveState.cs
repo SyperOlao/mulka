@@ -8,6 +8,8 @@ namespace Player.Movement.StateMachine
         private readonly int _moveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
         private const float AnimationDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
+        private const int Acceleration = 3;
+        
 
         public PlayerMoveState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
@@ -23,9 +25,16 @@ namespace Player.Movement.StateMachine
         {
             CalculateMoveDirection();
             FaceMoveDirection();
+        
+
+            if (StateMachine.RunAction.IsPressed())
+            {
+                StateMachine.Animator.SetFloat(_moveSpeedHash, StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 1f : 0f, AnimationDampTime, Time.deltaTime);
+                Move(Acceleration);
+                return;
+            }
             Move();
-           
-            StateMachine.Animator.SetFloat(_moveSpeedHash, StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 1f : 0f, AnimationDampTime, Time.deltaTime);
+            StateMachine.Animator.SetFloat(_moveSpeedHash, StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 0.9f : 0f, AnimationDampTime, Time.deltaTime);
         }
 
         public override void Exit()

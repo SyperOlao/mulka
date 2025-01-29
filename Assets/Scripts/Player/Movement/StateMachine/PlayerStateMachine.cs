@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player.Movement.StateMachine
 {
@@ -16,6 +17,15 @@ namespace Player.Movement.StateMachine
         public InputReader InputReader { get; private set; }
         public Animator Animator { get; private set; }
         public CharacterController Controller { get; private set; }
+        
+        private PlayerInput playerInput;
+        public InputAction RunAction { get; private set; }
+
+        private void Awake()
+        {
+            playerInput = GetComponent<PlayerInput>();
+            RunAction = playerInput.actions["RunQuick"];
+        }
 
         private void Start()
         {
