@@ -4,7 +4,7 @@ namespace Player.Movement.StateMachine
 {
     public class PlayerRunState : PlayerMoveState
     {
-        private const int Acceleration = 3;
+        private const int Acceleration = 2;
         
         public PlayerRunState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
@@ -24,7 +24,7 @@ namespace Player.Movement.StateMachine
             MovementSpeedCalculation(1f, Acceleration);
             if (StateMachine.JumpAction.IsPressed())
             {
-                StateMachine.SwitchState(new PlayerJumpState(StateMachine));
+                StateMachine.SwitchState(new PlayerJumpState(StateMachine, 2f));
             }
             if (!StateMachine.RunAction.IsPressed())
             {

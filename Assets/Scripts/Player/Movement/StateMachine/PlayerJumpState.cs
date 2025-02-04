@@ -6,13 +6,13 @@ namespace Player.Movement.StateMachine
     {
         private readonly int _inJumpingHash = Animator.StringToHash("isJumping");
         private readonly int _jumpBlendTreeHash = Animator.StringToHash("JumpBlendTree");
-        private const float CrossFadeDuration = 0.1f;
-        private const float TimeToJump = 1f;
         private bool _isGrounded;
-        private static float _jumpForce = 3f;
+        private static readonly float JumpForce = 3f;
+        private float _additionJumpForce;
 
-        public PlayerJumpState(PlayerStateMachine stateMachine) : base(stateMachine)
+        public PlayerJumpState(PlayerStateMachine stateMachine, float additionJumpForce = 1f) : base(stateMachine)
         {
+            _additionJumpForce = additionJumpForce;
         }
 
         public override void Enter()
@@ -30,7 +30,7 @@ namespace Player.Movement.StateMachine
             StateMachine.Animator.SetFloat(_jumpBlendTreeHash,
                 StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 0.9f : 0f, 0.9f,
                 Time.deltaTime);
-            
+
             ApplyGravity();
             if (_isGrounded)
             {
@@ -38,6 +38,7 @@ namespace Player.Movement.StateMachine
                 StateMachine.SwitchState(new PlayerMoveState(StateMachine));
                 return;
             }
+
             PhysicsUpdate();
         }
 
@@ -48,17 +49,18 @@ namespace Player.Movement.StateMachine
             FaceMoveDirection();
             _isGrounded = CheckCollisionOverlap(StateMachine.transform.position);
         }
-        
+
         private void ApplyGravity()
         {
             if (_isGrounded) return;
             StateMachine.Velocity.y += Physics.gravity.y * Time.deltaTime;
-            StateMachine.Controller.Move(StateMachine.Velocity * Time.deltaTime); 
+            var forceValue = _additionJumpForce * StateMachine.Velocity;
+            StateMachine.Controller.Move(forceValue * Time.deltaTime);
         }
 
         private void JumpCalculation()
         {
-            StateMachine.Velocity.y = _jumpForce;
+            StateMachine.Velocity.y = JumpForce;
         }
 
         public override void Exit()
