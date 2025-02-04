@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player.Movement.StateMachine
@@ -12,6 +13,8 @@ namespace Player.Movement.StateMachine
         public float LookRotationDampFactor { get; private set; } = 10f;
 
         [SerializeField] public Transform MainCamera;
+
+        [SerializeField] public LayerMask whatIsGround;
         
         public float MovementSpeed { get; private set; } = 5f;
         public InputReader InputReader { get; private set; }
@@ -20,13 +23,23 @@ namespace Player.Movement.StateMachine
         
         private PlayerInput playerInput;
         public InputAction RunAction { get; private set; }
+        public InputAction JumpAction { get; private set; }
+      
+        public Rigidbody Rigidbody { get; private set; }
+
+        public float CollisionOverlapRadius { get; private set; } = 0.1f;
 
         private void Awake()
         {
             playerInput = GetComponent<PlayerInput>();
             RunAction = playerInput.actions["RunQuick"];
+            JumpAction = playerInput.actions["Jump"];
+            Rigidbody = GetComponent<Rigidbody>();
         }
-
+        public void ApplyImpulse(Vector3 force)
+        {
+            Rigidbody.AddForce(force, ForceMode.Impulse);
+        }
         private void Start()
         {
             InputReader = GetComponent<InputReader>();
@@ -35,5 +48,6 @@ namespace Player.Movement.StateMachine
             
             SwitchState(new PlayerMoveState(this));
         }
+        
     }
 }

@@ -23,7 +23,16 @@ namespace Player.Movement.StateMachine
             StateMachine.Velocity.x = moveDirection.x * StateMachine.MovementSpeed;
             StateMachine.Velocity.z = moveDirection.z * StateMachine.MovementSpeed;
         }
-
+        
+      
+        
+        protected bool CheckCollisionOverlap(Vector3 point)
+        {
+         
+            return StateMachine.Controller.isGrounded;
+        }
+        
+        
         protected void FaceMoveDirection()
         {
             Vector3 faceDirection = new(StateMachine.Velocity.x, 0f, StateMachine.Velocity.z);
