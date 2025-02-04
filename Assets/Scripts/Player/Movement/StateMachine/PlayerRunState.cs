@@ -12,7 +12,6 @@ namespace Player.Movement.StateMachine
         
         public override void Enter()
         {
-            Debug.Log("RUN!!!");
             StateMachine.Velocity.y = Physics.gravity.y;
             
         }
@@ -23,10 +22,10 @@ namespace Player.Movement.StateMachine
             CalculateMoveDirection();
             FaceMoveDirection();
             MovementSpeedCalculation(1f, Acceleration);
-            // if (StateMachine.JumpAction.IsPressed())
-            // {
-            //     StateMachine.SwitchState(new PlayerJumpState(StateMachine));
-            // }
+            if (StateMachine.JumpAction.IsPressed())
+            {
+                StateMachine.SwitchState(new PlayerJumpState(StateMachine));
+            }
             if (!StateMachine.RunAction.IsPressed())
             {
                 StateMachine.SwitchState(new PlayerMoveState(StateMachine));

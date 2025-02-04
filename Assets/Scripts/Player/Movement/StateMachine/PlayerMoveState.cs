@@ -18,7 +18,6 @@ namespace Player.Movement.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("MOVE!!!");
             StateMachine.Velocity.y = Physics.gravity.y;
 
             StateMachine.Animator.CrossFadeInFixedTime(_moveBlendTreeHash, CrossFadeDuration);
@@ -31,16 +30,15 @@ namespace Player.Movement.StateMachine
             MovementSpeedCalculation(0.9f);
             if (StateMachine.JumpAction.IsPressed())
             {
-                Debug.Log("SPACE");
                 StateMachine.SwitchState(new PlayerJumpState(StateMachine));
                 return;
             }
 
-            /*if (StateMachine.RunAction.IsPressed())
+            if (StateMachine.RunAction.IsPressed())
             {
                 StateMachine.SwitchState(new PlayerRunState(StateMachine));
                 return;
-            }*/
+            }
 
         }
 
