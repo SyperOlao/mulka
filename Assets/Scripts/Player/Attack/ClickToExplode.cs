@@ -29,24 +29,24 @@ namespace Player.Attack
             {
                 Ray ray = Camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-                if (Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    Instantiate(ParticleSystemPrefab, hit.point, Quaternion.identity);
-                    int hits = Physics.OverlapSphereNonAlloc(hit.point, Radius, Hits, HitLayer);
+                if (!Physics.Raycast(ray, out var hit)) return;
+                
+                
+                Instantiate(ParticleSystemPrefab, hit.point, Quaternion.identity);
+                var hits = Physics.OverlapSphereNonAlloc(hit.point, Radius, Hits, HitLayer);
 
-                    for (int i = 0; i < hits; i++)
+                for (var i = 0; i < hits; i++)
+                {
+                    var distance = Vector3.Distance(hit.point, Hits[i].transform.position);
+                    var damage = Mathf.FloorToInt(Mathf.Lerp(MaxDamage, MinDamage, distance / Radius));
+                    if (Hits[i].TryGetComponent(out Rigidbody rigidbody) && !Physics.Raycast(hit.point, 
+                        (Hits[i].transform.position - hit.point).normalized, distance, BlockExplosionLayer.value))
                     {
-                        float distance = Vector3.Distance(hit.point, Hits[i].transform.position);
-                        int damage = Mathf.FloorToInt(Mathf.Lerp(MaxDamage, MinDamage, distance / Radius));
-                        if (Hits[i].TryGetComponent(out Rigidbody rigidbody) && !Physics.Raycast(hit.point, 
-                            (Hits[i].transform.position - hit.point).normalized, distance, BlockExplosionLayer.value))
-                        {
-                            rigidbody.AddExplosionForce(ExplosiveForce, hit.point, Radius);
-                        }
-                        if (Hits[i].TryGetComponent(out IDamageable damageable))
-                        {
-                            damageable.OnTakeDamage(damage);
-                        }
+                        rigidbody.AddExplosionForce(ExplosiveForce, hit.point, Radius);
+                    }
+                    if (Hits[i].TryGetComponent(out IDamageable damageable))
+                    {
+                        damageable.OnTakeDamage(damage);
                     }
                 }
             }
