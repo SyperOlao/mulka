@@ -45,8 +45,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Editor\RampAssetEditor.cs" />
-     <Compile Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\differences.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\cm-help.ko.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\semantic.es.txt" />
@@ -79,7 +79,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Editor" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\basecommands.zh-Hans.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\images.es.txt" />
-     <Folder Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts\Editor" />
+     <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Editor" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\guihelp.zh-Hans.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\mergetool.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib\Editor\Localization\clientcommon.zh-Hant.txt" />
