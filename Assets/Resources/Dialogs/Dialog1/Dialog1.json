@@ -2,18 +2,41 @@
   {
     "subject": "Anna",
     "text": [
-      "Lox",
-      "faggot",
-      "Sosal?",
-      "Your are fucking faggot"
+      "Hi, are you lox?"
     ]
   },
   {
     "subject": "Kostya",
     "text": [
-      "I am Lox",
-      "I am faggot",
       "Yes"
+    ]
+  },
+  {
+    "subject": "Anna",
+    "text": [
+      "Hm... Honestly, I don't care. Do you think your life is pathetic? Sosal?"
+    ]
+  },
+  {
+    "subject": "Kostya",
+    "text": [
+      "Yes",
+      "Oh... Aurrr... You kidding... I HATE YOU",
+      "Its unfair to hear this thing from my older sister "
+    ]
+  },
+  {
+    "subject": "Anna",
+    "text": [
+      "BUAHAHAHAHHAHAHA",
+      "Buy, my lil brother!"
+    ]
+  },
+  {
+    "subject": "Kostya",
+    "text": [
+      "I'LL KILL YOU ARHHRRR",
+      "FUCK OFF!!!"
     ]
   }
 ]
