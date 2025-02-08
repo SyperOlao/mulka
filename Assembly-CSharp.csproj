@@ -102,6 +102,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Animations" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials" />
+     <Folder Include="Assets\Resources\UI\Avatars" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\package.json" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\ValidationConfig.json" />
@@ -137,7 +138,6 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\Cubes" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Prefabs" />
-     <Folder Include="Assets\Scripts\Dialogs\Data\Character\Photo" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Graphics" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Gizmos" />
      <Folder Include="Assets\Scripts\Enemy" />
@@ -212,6 +212,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders" />
+     <Folder Include="Assets\Resources\UI" />
      <None Include="Library\PackageCache\com.unity.searcher@4.9.2\package.json" />
      <Folder Include="Assets\Scripts\Enemy\Movement" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects" />

@@ -16,6 +16,7 @@ namespace Dialogs.Logic
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Animator animator;
+        [SerializeField] private Image image;
 
         [ItemCanBeNull] private Queue<DialogDataDto> _currentDialogue;
         [ItemCanBeNull] private Queue<string> _sentences;
@@ -50,7 +51,10 @@ namespace Dialogs.Logic
         {
             var character = _dialogCharacterList.GetCharacterByName(dialogDataDto.subject);
             nameText.text = character.Name;
-            
+            Debug.Log(character.PngPath);
+            var sp = Resources.Load<Sprite>(character.PngPath);
+            Debug.Log(sp);
+            image.sprite = Resources.Load<Sprite>(character.PngPath);
             _sentences.Clear();
             foreach (var sentence in dialogDataDto.text)
             {
