@@ -121,10 +121,10 @@
      <Folder Include="Assets\Scripts\UI\Battle" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Bloom.shader" />
-     <Folder Include="Assets\Scripts\Dialogs\Data\DialogData\Dialog1" />
+     <Folder Include="Assets\Resources\Dialogs\Dialog1" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources" />
-     <None Include="Assets\Scripts\Dialogs\Data\DialogData\Dialog1\Dialog1.json" />
+     <None Include="Assets\Resources\Dialogs\Dialog1\Dialog1.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.compute" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3\Tests" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Main" />
@@ -234,6 +234,7 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo" />
+     <Folder Include="Assets\Resources\Dialogs" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.shader" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D9.hlsl" />
      <Folder Include="Assets\Scripts\Common" />
