@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
+     <Compile Include="Assets\Scripts\Common\Utils\ColorHelper.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
@@ -129,7 +130,7 @@
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3\Tests" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Main" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Sampling.hlsl" />
-     <Folder Include="Assets\UI\Fonts" />
+     <Folder Include="Assets\Resources\Dialogs\Fonts" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Scripts\Player\Animations" />
@@ -208,7 +209,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects\Materials" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Profiles" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro" />
-     <None Include="Assets\UI\Fonts\6809_chargen\License.txt" />
+     <None Include="Assets\Resources\Dialogs\Fonts\6809_chargen\License.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders" />
@@ -286,6 +287,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.6.0" />
+     <Folder Include="Assets\Scripts\Common\Utils" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\Style Sheets" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
@@ -313,7 +315,7 @@
      <Folder Include="Assets\Scripts\Dialogs\Data\Character\Info" />
      <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Prefabs" />
-     <Folder Include="Assets\UI\Fonts\6809_chargen" />
+     <Folder Include="Assets\Resources\Dialogs\Fonts\6809_chargen" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
@@ -346,7 +348,7 @@
      <Folder Include="Assets\Scripts\Dialogs" />
      <Folder Include="Assets\Resources" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
-     <Folder Include="Assets\Animation\UI\Dialogue" />
+     <Folder Include="Assets\Animation\UI\Dialog" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts" />
      <Folder Include="Assets\Animation\UI" />
      <Folder Include="Assets\Scripts\Enemy\Health" />

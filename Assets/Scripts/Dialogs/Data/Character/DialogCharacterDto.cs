@@ -9,6 +9,5 @@ namespace Dialogs.Data.Character
         public string PngPath { get; set; }
         public string NameColor { get; set; }
         public string TextColor { get; set; }
-        public string BgColor { get; set; }
     }
 }

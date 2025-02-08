@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Utils;
 using Dialogs.Data.Character;
 using Dialogs.Data.DialogData;
 using JetBrains.Annotations;
@@ -22,7 +23,7 @@ namespace Dialogs.Logic
         [ItemCanBeNull] private Queue<string> _sentences;
         private LoadedCharacterService _dialogCharacterList;
 
-        public void Start()
+        public void Start() 
         {
             _dialogCharacterList = new LoadedCharacterService();
             _currentDialogue = new Queue<DialogDataDto>();
@@ -51,9 +52,8 @@ namespace Dialogs.Logic
         {
             var character = _dialogCharacterList.GetCharacterByName(dialogDataDto.subject);
             nameText.text = character.Name;
-            Debug.Log(character.PngPath);
-            var sp = Resources.Load<Sprite>(character.PngPath);
-            Debug.Log(sp);
+            nameText.color =  ColorHelper.HexToColor(character.NameColor);
+            dialogueText.color = ColorHelper.HexToColor(character.TextColor);
             image.sprite = Resources.Load<Sprite>(character.PngPath);
             _sentences.Clear();
             foreach (var sentence in dialogDataDto.text)
