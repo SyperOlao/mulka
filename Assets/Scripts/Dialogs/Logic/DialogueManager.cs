@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Dialogs.Data.Character;
 using Dialogs.Data.DialogData;
 using JetBrains.Annotations;
@@ -9,69 +10,77 @@ using UnityEngine.UI;
 
 namespace Dialogs.Logic
 {
-    public class DialogueManager: MonoBehaviour
+    public class DialogueManager : MonoBehaviour
     {
         private readonly int _isOpenHash = Animator.StringToHash("IsOpen");
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Animator animator;
-        
+
         [ItemCanBeNull] private Queue<DialogDataDto> _currentDialogue;
         [ItemCanBeNull] private Queue<string> _sentences;
         private LoadedCharacterService _dialogCharacterList;
-        public void Start () {
-            _dialogCharacterList = new LoadedCharacterService();
 
+        public void Start()
+        {
+            _dialogCharacterList = new LoadedCharacterService();
+            _currentDialogue = new Queue<DialogDataDto>();
+            _sentences = new Queue<string>();
         }
-        
-        
+
         public void StartDialogue(List<DialogDataDto> dialogue)
         {
             animator.SetBool(_isOpenHash, true);
             foreach (var replica in dialogue)
             {
-                Debug.Log(replica.subject);
                 _currentDialogue.Enqueue(replica);
-                CharacterReplica(replica);
             }
-            EndDialogue();
+
+            CharacterReplica();
         }
 
-        private void CharacterReplica(DialogDataDto dialogue)
+        private void CharacterReplica()
         {
-            var character = _dialogCharacterList.GetCharacterByName(dialogue.subject);
+            var dialogue = _currentDialogue.Dequeue();
+            ChangeSpeaker(dialogue);
+            DisplayNextSentence();
+        }
+
+        private void ChangeSpeaker(DialogDataDto dialogDataDto)
+        {
+            var character = _dialogCharacterList.GetCharacterByName(dialogDataDto.subject);
             nameText.text = character.Name;
-
-            _currentDialogue.Clear();
-
-            foreach (var sentence in dialogue.text)
+            
+            _sentences.Clear();
+            foreach (var sentence in dialogDataDto.text)
             {
                 _sentences.Enqueue(sentence);
             }
-            
-            DisplayNextSentence();
+
         }
-        
+
         public void DisplayNextSentence()
         {
             if (_sentences.Count == 0)
             {
-                var dialogDataDto = _currentDialogue.Dequeue();
-                _sentences = dialogDataDto.text;
-                var character = _dialogCharacterList.GetCharacterByName(dialogDataDto.subject);
-                nameText.text = character.Name;
+                if (_currentDialogue.TryDequeue(out var dialogDataDto))
+                {
+                    ChangeSpeaker(dialogDataDto);
+                }
+                else
+                {
+                    EndDialogue();
+                    return;
+                }
             }
-            
-            EndDialogue();
-
 
             var sentence = _sentences.Dequeue();
-            
+
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
-        
-       private IEnumerator TypeSentence (string sentence)
+
+        private IEnumerator TypeSentence(string sentence)
         {
             dialogueText.text = "";
             foreach (var letter in sentence.ToCharArray())
@@ -83,8 +92,8 @@ namespace Dialogs.Logic
 
         private void EndDialogue()
         {
+            dialogueText.text = "ENDED!!!";
             animator.SetBool(_isOpenHash, false);
         }
-        
     }
 }

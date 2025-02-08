@@ -21,7 +21,8 @@ namespace Dialogs.Logic
                 throw new Exception("Json in DialogTrigger does not exists");
             }
             _dialogue = JsonConvert.DeserializeObject<List<DialogDataDto>>(jsonFile.text);
-
+            
+            
             FindObjectOfType<DialogueManager>().StartDialogue(_dialogue);
         }
     }
