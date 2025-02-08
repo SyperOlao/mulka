@@ -347,6 +347,9 @@
      <Reference Include="Unity.VisualScripting.TextureAssets">
      <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
      </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.newtonsoft.json@f434e27dd0\JsonDotNet\Newtonsoft.Json.dll</HintPath>
+     </Reference>
      <Reference Include="nunit.framework">
      <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dialogs.Data.SpeechText
+namespace Dialogs.Data.DialogData
 {
     [Serializable]
     public class DialogDataDto

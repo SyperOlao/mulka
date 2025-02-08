@@ -1,16 +1,16 @@
-﻿[
-  {
+﻿{
+  "Anna": {
     "name": "Anna",
-    "pngPath": "Assets/Scripts/Dialogs/Data/Character/Anna/kakashi.png",
+    "pngPath": "Assets/Scripts/Dialogs/Data/Character/Photo/kakashi.png",
     "nameColor": "#bdbdbd",
     "textColor": "#666666",
     "bgColor": "#ffffff"
   },
-  {
+  "Kostya": {
     "name": "Kostya",
-    "pngPath": "Assets/Scripts/Dialogs/Data/Character/Kostya/kostya.png",
+    "pngPath": "Assets/Scripts/Dialogs/Data/Character/Photo/kostya.png",
     "nameColor": "#f5a390",
     "textColor": "#ffb7a6",
     "bgColor": "#422822"
   }
-]
+}

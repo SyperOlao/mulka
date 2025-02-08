@@ -72,9 +72,11 @@
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Logic\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Data\Character\LoadedCharacterService.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
@@ -342,7 +344,9 @@
      <Folder Include="Assets\Scripts\Dialogs" />
      <Folder Include="Assets\Resources" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+     <Folder Include="Assets\Animation\UI\Dialogue" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts" />
+     <Folder Include="Assets\Animation\UI" />
      <Folder Include="Assets\Scripts\Enemy\Health" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\XboxOne.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Copy.shader" />
@@ -639,6 +643,9 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.newtonsoft.json@f434e27dd0\JsonDotNet\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
