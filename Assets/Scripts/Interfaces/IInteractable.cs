@@ -9,6 +9,5 @@ namespace Interfaces
         string GetInteractionText();
         Transform GetTransform();
         
-        string GetInstanceId();
     }
 }

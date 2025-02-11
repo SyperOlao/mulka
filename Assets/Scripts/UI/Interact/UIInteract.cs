@@ -31,6 +31,7 @@ namespace UI.Interact
             if (_frameCounter < UpdateInterval) return;
             
             _frameCounter = 0;
+            Debug.Log("DASDSDSASDADs");
             var interact = playerInteract.GetInteractionObject();
             Interaction(interact);
         }

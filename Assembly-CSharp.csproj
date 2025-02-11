@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerRunState.cs" />
+     <Compile Include="Assets\Scripts\Interaction\CharacterInteraction.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\AdjustTimeScale.cs" />
@@ -200,6 +201,7 @@
      <Folder Include="Assets\Animation\Character\pictures" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7" />
+     <Folder Include="Assets\Scripts\Interaction" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Tests" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\package.json" />
      <Folder Include="Assets\Scripts\Player\Attack" />
