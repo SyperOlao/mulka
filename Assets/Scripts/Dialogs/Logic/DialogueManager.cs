@@ -14,6 +14,7 @@ namespace Dialogs.Logic
     public class DialogueManager : MonoBehaviour
     {
         private readonly int _isOpenHash = Animator.StringToHash("IsOpen");
+        [SerializeField] private GameObject container;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Animator animator;
@@ -22,9 +23,11 @@ namespace Dialogs.Logic
         [ItemCanBeNull] private Queue<DialogDataDto> _currentDialogue;
         [ItemCanBeNull] private Queue<string> _sentences;
         private LoadedCharacterService _dialogCharacterList;
+        private bool _isDialogueActive;
 
         public void Start() 
         {
+            container.SetActive(true);
             _dialogCharacterList = new LoadedCharacterService();
             _currentDialogue = new Queue<DialogDataDto>();
             _sentences = new Queue<string>();
@@ -32,6 +35,8 @@ namespace Dialogs.Logic
 
         public void StartDialogue(List<DialogDataDto> dialogue)
         {
+            if (_isDialogueActive) return;
+            _isDialogueActive = true;
             animator.SetBool(_isOpenHash, true);
             foreach (var replica in dialogue)
             {
@@ -94,10 +99,12 @@ namespace Dialogs.Logic
             }
         }
 
-        private void EndDialogue()
+        public void EndDialogue()
         {
             dialogueText.text = "ENDED!!!";
             animator.SetBool(_isOpenHash, false);
+            _isDialogueActive = false;
+           
         }
     }
 }

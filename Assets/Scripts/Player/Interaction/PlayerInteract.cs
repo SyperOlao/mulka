@@ -21,12 +21,17 @@ namespace Player.Interaction
         {
             _playerInput = GetComponent<PlayerInput>();
             _interactAction = _playerInput.actions["Interact"];
+            _interactAction.performed += OnInteractPerformed;
         }
 
-
-        public void Update()
+        private void OnDestroy()
         {
-            if (!_interactAction.IsPressed()) return;
+           
+            _interactAction.performed -= OnInteractPerformed;
+        }
+
+        private void OnInteractPerformed(InputAction.CallbackContext context)
+        {
             var interactable = GetInteractionObject();
             interactable?.Interact(transform);
         }

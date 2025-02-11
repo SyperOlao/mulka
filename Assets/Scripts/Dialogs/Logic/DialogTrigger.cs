@@ -10,9 +10,14 @@ namespace Dialogs.Logic
     public class DialogTrigger : MonoBehaviour
     {
         [SerializeField] private TextAsset jsonFile;
-
+        
         private List<DialogDataDto> _dialogue;
+        private DialogueManager _dialogueManager;
 
+        public void Awake()
+        {
+            _dialogueManager = FindObjectOfType<DialogueManager>();
+        }
 
         public void TriggerDialogue()
         {
@@ -23,7 +28,12 @@ namespace Dialogs.Logic
             _dialogue = JsonConvert.DeserializeObject<List<DialogDataDto>>(jsonFile.text);
             
             
-            FindObjectOfType<DialogueManager>().StartDialogue(_dialogue);
+            _dialogueManager.StartDialogue(_dialogue);
+        }
+
+        public void EndDialogue()
+        {
+            _dialogueManager.EndDialogue();
         }
     }
 }
