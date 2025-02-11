@@ -122,10 +122,10 @@
      <Folder Include="Assets\Scripts\UI\Battle" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Bloom.shader" />
-     <Folder Include="Assets\Resources\Dialogs\Dialog1" />
+     <Folder Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources" />
-     <None Include="Assets\Resources\Dialogs\Dialog1\Dialog1.json" />
+     <None Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1\Dialog1.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.compute" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3\Tests" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Main" />
@@ -255,6 +255,7 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\Metal.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Uber.shader" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\SMAA" />
+     <Folder Include="Assets\Resources\Dialogs\CommonDialogs" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF.shader" />
@@ -277,7 +278,7 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\LUTs" />
      <Folder Include="Assets\Scripts\Interfaces" />
      <Folder Include="Library\PackageCache\com.unity.mathematics@1.2.6" />
-     <None Include="Assets\Scripts\Dialogs\Data\Character\Info\CharacterInfo.json" />
+     <None Include="Assets\Resources\Dialogs\Info\CharacterInfo.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials" />
      <Folder Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Overlays.shader" />
@@ -313,7 +314,7 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <Folder Include="Assets\Models\Furniture\Mirror" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\ValidationConfig.json" />
-     <Folder Include="Assets\Scripts\Dialogs\Data\Character\Info" />
+     <Folder Include="Assets\Resources\Dialogs\Info" />
      <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Prefabs" />
      <Folder Include="Assets\Resources\Dialogs\Fonts\6809_chargen" />

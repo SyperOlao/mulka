@@ -15,7 +15,7 @@ namespace Dialogs.Data.Character
 
         public LoadedCharacterService()
         {
-            const string filePath = "Assets/Scripts/Dialogs/Data/Character/Info/CharacterInfo.json";
+            const string filePath = "Assets/Resources/Dialogs/Info/CharacterInfo.json";
             if (!File.Exists(filePath))
             {
                 throw new Exception("JSON file not found at path: " + filePath + "in LoadedCharacterService");
