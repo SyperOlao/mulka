@@ -9,7 +9,7 @@ namespace Player.Interaction
 {
     public class PlayerInteract : MonoBehaviour
     {
-        [SerializeField] private float interactRange = 4f;
+        [SerializeField] private float interactRange = 2f;
 
         private PlayerInput _playerInput;
         private InputAction _interactAction;
@@ -17,7 +17,7 @@ namespace Player.Interaction
         private bool _isInteract;
  
 
-        private void Awake()
+        public void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
             _interactAction = _playerInput.actions["Interact"];
@@ -31,14 +31,18 @@ namespace Player.Interaction
             interactable?.Interact(transform);
         }
         
+  
 
         public IInteractable GetInteractionObject()
         {
+      
+            Array.Clear(_colliders, 0, _colliders.Length);
             var numColliders = Physics.OverlapSphereNonAlloc(transform.position, interactRange, _colliders);
             if (numColliders <= 0) return null;
             var closestDistance = float.MaxValue;
             IInteractable closestInteractable = null;
             var position = transform.position;
+            
             for (var i = 0; i < numColliders; i++)
             {
                 if (!_colliders[i].TryGetComponent(out IInteractable newInteractable)) continue;
@@ -47,8 +51,8 @@ namespace Player.Interaction
                 closestDistance = distance;
                 closestInteractable = newInteractable;
             }
-
-
+            
+            
             return closestInteractable;
         }
     }

@@ -5,7 +5,7 @@ namespace Interaction
 {
     public class CharacterInteraction: MonoBehaviour, IInteractable
     {
-        
+        [SerializeField] private string name;
         
         public void Interact(Transform playerPosition)
         {
@@ -14,7 +14,7 @@ namespace Interaction
 
         public string GetInteractionText()
         {
-            return "PASDDSAD";
+            return "Talk with " + name;
         }
 
         public Transform GetTransform()
