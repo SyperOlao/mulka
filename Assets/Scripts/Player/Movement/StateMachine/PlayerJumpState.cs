@@ -7,8 +7,8 @@ namespace Player.Movement.StateMachine
         private readonly int _inJumpingHash = Animator.StringToHash("isJumping");
         private readonly int _jumpBlendTreeHash = Animator.StringToHash("JumpBlendTree");
         private bool _isGrounded;
-        private static readonly float JumpForce = 3f;
-        private float _additionJumpForce;
+        private const float JumpForce = 3f;
+        private readonly float _additionJumpForce;
 
         public PlayerJumpState(PlayerStateMachine stateMachine, float additionJumpForce = 1f) : base(stateMachine)
         {

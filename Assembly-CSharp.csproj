@@ -151,6 +151,7 @@
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\ValidationConfig.json" />
      <Folder Include="Assets\Scripts\Enemy\Animation" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials" />
+     <Folder Include="Assets\Resources\Characters" />
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\PSSL.hlsl" />

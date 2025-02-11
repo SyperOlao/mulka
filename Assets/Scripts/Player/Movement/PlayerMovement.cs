@@ -7,13 +7,13 @@ namespace Player.Movement
 
         public float moveSpeed;
         private CharacterController _characterController;    
-        void Start()
+        public void Start()
         {
             gameObject.tag = "Player";
             _characterController = GetComponent<CharacterController>();
         }
         
-        void Update()
+        public void Update()
         {
             var x = Input.GetAxisRaw("Horizontal");
             var z = Input.GetAxisRaw("Vertical");
