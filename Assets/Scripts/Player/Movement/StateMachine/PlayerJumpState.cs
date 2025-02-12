@@ -27,10 +27,6 @@ namespace Player.Movement.StateMachine
 
         public override void Tick()
         {
-            StateMachine.Animator.SetFloat(_jumpBlendTreeHash,
-                StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 0.9f : 0f, 0.9f,
-                Time.deltaTime);
-
             ApplyGravity();
             if (_isGrounded)
             {
