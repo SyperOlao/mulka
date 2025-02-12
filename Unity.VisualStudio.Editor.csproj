@@ -355,6 +355,9 @@
      <Reference Include="nunit.framework">
      <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.newtonsoft.json@f434e27dd0\JsonDotNet\Newtonsoft.Json.dll</HintPath>
+     </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
      </Reference>

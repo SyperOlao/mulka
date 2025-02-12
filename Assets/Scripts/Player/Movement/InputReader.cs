@@ -6,7 +6,7 @@ namespace Player.Movement
 {
     public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
-        public Vector2 MoveComposite { get; set; }
+        public Vector2 MoveComposite { get; private set; }
     
         private Controls _controls;
     

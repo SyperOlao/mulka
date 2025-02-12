@@ -13,33 +13,27 @@ namespace Player.Movement.StateMachine
         public float LookRotationDampFactor { get; private set; } = 10f;
 
         [SerializeField] public Transform MainCamera;
-
-        [SerializeField] public LayerMask whatIsGround;
+        
         
         public float MovementSpeed { get; private set; } = 5f;
         public InputReader InputReader { get; private set; }
         public Animator Animator { get; private set; }
         public CharacterController Controller { get; private set; }
         
-        private PlayerInput playerInput;
+        private PlayerInput _playerInput;
         public InputAction RunAction { get; private set; }
         public InputAction JumpAction { get; private set; }
       
-        public Rigidbody Rigidbody { get; private set; }
-
-        public float CollisionOverlapRadius { get; private set; } = 0.1f;
+     
 
         private void Awake()
         {
-            playerInput = GetComponent<PlayerInput>();
-            RunAction = playerInput.actions["RunQuick"];
-            JumpAction = playerInput.actions["Jump"];
-            Rigidbody = GetComponent<Rigidbody>();
+            _playerInput = GetComponent<PlayerInput>();
+            RunAction = _playerInput.actions["RunQuick"];
+            JumpAction = _playerInput.actions["Jump"];
+       
         }
-        public void ApplyImpulse(Vector3 force)
-        {
-            Rigidbody.AddForce(force, ForceMode.Impulse);
-        }
+    
         private void Start()
         {
             InputReader = GetComponent<InputReader>();
@@ -47,6 +41,16 @@ namespace Player.Movement.StateMachine
             Controller = GetComponent<CharacterController>();
             
             SwitchState(new PlayerMoveState(this));
+        }
+
+        public void SetIdleState()
+        {
+            SwitchState(new PlayerMoveState(this));
+        }
+
+        public void SetMoveState()
+        {
+            SwitchState(new PlayerIdleState(this));
         }
         
     }

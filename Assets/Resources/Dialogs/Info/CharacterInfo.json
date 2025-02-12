@@ -1,0 +1,14 @@
+﻿{
+  "Anna": {
+    "name": "Anna",
+    "pngPath": "UI/Avatars/kakashi",
+    "nameColor": "#363636",
+    "textColor": "#666666"
+  },
+  "Kostya": {
+    "name": "Kostya",
+    "pngPath": "UI/Avatars/kostya",
+    "nameColor": "#2b1e12",
+    "textColor": "#402a15"
+  }
+}

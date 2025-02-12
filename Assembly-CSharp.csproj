@@ -45,7 +45,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerRunState.cs" />
+     <Compile Include="Assets\Scripts\Interaction\CharacterInteraction.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\AdjustTimeScale.cs" />
@@ -61,25 +63,34 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
+     <Compile Include="Assets\Scripts\Common\Utils\ColorHelper.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />
+     <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
+     <Compile Include="Assets\Scripts\UI\Interact\UIInteract.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Logic\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Data\Character\LoadedCharacterService.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Data\DialogData\DialogDataDto.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
-     <Compile Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\Dialogs\Logic\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FaceCamera\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
+     <Compile Include="Assets\Scripts\Player\Interaction\PlayerInteract.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models" />
@@ -97,6 +108,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Animations" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials" />
+     <Folder Include="Assets\Resources\UI\Avatars" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\package.json" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\ValidationConfig.json" />
@@ -114,12 +126,15 @@
      <Folder Include="Assets\Scripts\UI\Battle" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Bloom.shader" />
+     <Folder Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources" />
+     <None Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1\Dialog1.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.compute" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3\Tests" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Main" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Sampling.hlsl" />
+     <Folder Include="Assets\Resources\Dialogs\Fonts" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Scripts\Player\Animations" />
@@ -140,10 +155,13 @@
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\ValidationConfig.json" />
      <Folder Include="Assets\Scripts\Enemy\Animation" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials" />
+     <Folder Include="Assets\Resources\Characters" />
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\PSSL.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures" />
+     <Folder Include="Assets\Scripts\Dialogs\Logic" />
+     <Folder Include="Assets\Scripts\Dialogs\Data\DialogData" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
@@ -178,32 +196,37 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise256px" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+     <Folder Include="Assets\Models\Furniture\sofa" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <Folder Include="Assets\Animation\Character\pictures" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7" />
+     <Folder Include="Assets\Scripts\Interaction" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Tests" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\package.json" />
      <Folder Include="Assets\Scripts\Player\Attack" />
      <Folder Include="Assets\Animation\Character\textures" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects" />
+     <Folder Include="Assets\Scripts\Dialogs\Data" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects\Textures" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\ValidationExceptions.json" />
      <Folder Include="Assets\Scripts\Enemy\FOV" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects\Materials" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Profiles" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro" />
+     <None Include="Assets\Resources\Dialogs\Fonts\6809_chargen\License.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders" />
+     <Folder Include="Assets\Resources\UI" />
      <None Include="Library\PackageCache\com.unity.searcher@4.9.2\package.json" />
      <Folder Include="Assets\Scripts\Enemy\Movement" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects" />
      <Folder Include="Assets\Scenes" />
-     <Folder Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts" />
+     <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts" />
      <None Include="Library\PackageCache\com.unity.test-framework@1.1.33\package.json" />
      <Folder Include="Assets\Scripts\UI" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Scripts" />
@@ -218,7 +241,8 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3" />
-     <Folder Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo" />
+     <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo" />
+     <Folder Include="Assets\Resources\Dialogs" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.shader" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D9.hlsl" />
      <Folder Include="Assets\Scripts\Common" />
@@ -236,14 +260,15 @@
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\Metal.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Uber.shader" />
+     <Folder Include="Assets\Scripts\UI\Interact" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\SMAA" />
+     <Folder Include="Assets\Resources\Dialogs\CommonDialogs" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationExceptions.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Prefabs" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\Tests" />
-     <Folder Include="Assets\Models\Furniture\bed\FBX\models" />
      <Folder Include="Assets\Scripts\Player" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\xRLib.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures" />
@@ -253,12 +278,14 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Textures" />
      <Folder Include="Assets\Animation\Character\Materials" />
      <Folder Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0" />
+     <Folder Include="Assets\Models\Furniture\sofa\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\LUTs" />
      <Folder Include="Assets\Scripts\Interfaces" />
      <Folder Include="Library\PackageCache\com.unity.mathematics@1.2.6" />
+     <None Include="Assets\Resources\Dialogs\Info\CharacterInfo.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials" />
      <Folder Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Overlays.shader" />
@@ -269,6 +296,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.6.0" />
+     <Folder Include="Assets\Scripts\Common\Utils" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\Style Sheets" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
@@ -284,7 +312,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.24" />
      <Folder Include="Assets\Models\Furniture\Chair" />
-     <Folder Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Icons" />
+     <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Icons" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\CopyStd.shader" />
@@ -293,8 +321,10 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <Folder Include="Assets\Models\Furniture\Mirror" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\ValidationConfig.json" />
+     <Folder Include="Assets\Resources\Dialogs\Info" />
      <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Prefabs" />
+     <Folder Include="Assets\Resources\Dialogs\Fonts\6809_chargen" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
@@ -319,14 +349,18 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1\Content" />
+     <Folder Include="Assets\Scripts\Player\Interaction" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts" />
      <Folder Include="Assets\Animation\Character" />
      <Folder Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18" />
+     <Folder Include="Assets\Scripts\Dialogs" />
      <Folder Include="Assets\Resources" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+     <Folder Include="Assets\Animation\UI\Dialog" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts" />
+     <Folder Include="Assets\Animation\UI" />
      <Folder Include="Assets\Scripts\Enemy\Health" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\XboxOne.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Copy.shader" />
@@ -352,6 +386,7 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\Unity.Burst.Unsafe.xml" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials" />
+     <Folder Include="Assets\Scripts\Dialogs\Data\Character" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\Vulkan.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Shaders" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\package.json" />
@@ -622,6 +657,9 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Users\SyperOlao\Unity\kostya-game\Library\PackageCache\com.newtonsoft.json@f434e27dd0\JsonDotNet\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
