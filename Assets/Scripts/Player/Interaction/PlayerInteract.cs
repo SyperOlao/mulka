@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Interfaces;
 using JetBrains.Annotations;
+using Player.Movement.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,18 +11,18 @@ namespace Player.Interaction
     public class PlayerInteract : MonoBehaviour
     {
         [SerializeField] private float interactRange = 2f;
-
         private PlayerInput _playerInput;
         private InputAction _interactAction;
         private readonly Collider[] _colliders = new Collider[10];
         private bool _isInteract;
- 
+      
 
         public void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
             _interactAction = _playerInput.actions["Interact"];
             _interactAction.performed += OnInteractPerformed;
+            
         }
 
         private void OnDestroy()

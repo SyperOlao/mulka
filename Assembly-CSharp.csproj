@@ -71,6 +71,7 @@
      <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
@@ -114,7 +115,6 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
-     <Folder Include="Assets\UI" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator" />
@@ -196,6 +196,7 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise256px" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+     <Folder Include="Assets\Models\Furniture\sofa" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <Folder Include="Assets\Animation\Character\pictures" />
@@ -268,7 +269,6 @@
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationExceptions.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Prefabs" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\Tests" />
-     <Folder Include="Assets\Models\Furniture\bed\FBX\models" />
      <Folder Include="Assets\Scripts\Player" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\xRLib.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures" />
@@ -278,6 +278,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Textures" />
      <Folder Include="Assets\Animation\Character\Materials" />
      <Folder Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0" />
+     <Folder Include="Assets\Models\Furniture\sofa\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs" />

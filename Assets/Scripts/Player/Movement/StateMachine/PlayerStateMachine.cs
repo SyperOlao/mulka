@@ -42,6 +42,16 @@ namespace Player.Movement.StateMachine
             
             SwitchState(new PlayerMoveState(this));
         }
+
+        public void SetIdleState()
+        {
+            SwitchState(new PlayerMoveState(this));
+        }
+
+        public void SetMoveState()
+        {
+            SwitchState(new PlayerIdleState(this));
+        }
         
     }
 }
