@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
 using State = Common.StateMachine.State;
@@ -27,21 +28,10 @@ namespace Enemy.Movement.StateMachine
             StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
             
         }
-        
 
-        protected void ChangeCurrentPoint()
+        protected Vector3 GetRoamingPosition()
         {
-            var currentPoint = StateMachine.CurrentPoint;
-            var length = StateMachine.Points.Count;
-
-            if (currentPoint >= length - 1)
-            {
-                StateMachine.CurrentPoint = 0;
-            }
-            else
-            {
-                StateMachine.CurrentPoint++;
-            }
+            return RandomPositionHelper.GetRandomPosition(StateMachine.RadiusStartFiled, StateMachine.StartPosition);
         }
     }
 }

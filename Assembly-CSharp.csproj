@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Common\Utils\ColorHelper.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
+     <Compile Include="Assets\Scripts\Common\Utils\RandomPositionHelper.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
@@ -166,6 +167,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
      <Folder Include="Assets\Models" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Gizmos" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationConfig.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures" />
@@ -187,13 +189,16 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models" />
      <Folder Include="Assets\Resources\Player" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\package.json" />
+     <Folder Include="Assets\Animation\Enemy" />
      <None Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\ValidationExceptions.json" />
+     <Folder Include="Assets\Models\Creatures\naruto-free-fire\textures" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.timeline@1.7.5" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
      <Folder Include="Assets\Models\Furniture\bed\FBX" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise256px" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
      <Folder Include="Assets\Models\Furniture\sofa" />
@@ -220,6 +225,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders" />
+     <Folder Include="Assets\Resources\Enemy" />
      <Folder Include="Assets\Resources\UI" />
      <None Include="Library\PackageCache\com.unity.searcher@4.9.2\package.json" />
      <Folder Include="Assets\Scripts\Enemy\Movement" />
@@ -242,6 +248,7 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5" />
      <Folder Include="Assets\Resources\Dialogs" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.shader" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D9.hlsl" />
@@ -287,6 +294,7 @@
      <Folder Include="Library\PackageCache\com.unity.mathematics@1.2.6" />
      <None Include="Assets\Resources\Dialogs\Info\CharacterInfo.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials" />
+     <Folder Include="Assets\Models\Creatures" />
      <Folder Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Overlays.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
@@ -305,6 +313,7 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources\Overlay" />
      <Folder Include="Assets\Scripts\Common\Timer" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\package.json" />
@@ -320,17 +329,21 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <Folder Include="Assets\Models\Furniture\Mirror" />
+     <Folder Include="Assets\Models\Creatures\kakashi-free-fire (2)" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\ValidationConfig.json" />
      <Folder Include="Assets\Resources\Dialogs\Info" />
      <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Prefabs" />
      <Folder Include="Assets\Resources\Dialogs\Fonts\6809_chargen" />
+     <Folder Include="Assets\Models\Creatures\naruto-free-fire\Materials" />
+     <None Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\package.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
+     <Folder Include="Assets\Models\Creatures\naruto-free-fire\source" />
      <Folder Include="Assets\Scripts\Common\StateMachine" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Fog.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples" />
@@ -338,6 +351,7 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Presets" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.6.0\Lib" />
@@ -361,16 +375,19 @@
      <Folder Include="Assets\Animation\UI\Dialog" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts" />
      <Folder Include="Assets\Animation\UI" />
+     <Folder Include="Assets\Scenes\SampleScene" />
      <Folder Include="Assets\Scripts\Enemy\Health" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\XboxOne.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Copy.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Sprites" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D12.hlsl" />
+     <Folder Include="Assets\Animation\Enemy\Test" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets\Models\Creatures\naruto-free-fire" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
      <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
@@ -384,6 +401,7 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise64px" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\Models\Creatures\kakashi-free-fire (2)\source" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\Unity.Burst.Unsafe.xml" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials" />
      <Folder Include="Assets\Scripts\Dialogs\Data\Character" />
@@ -398,6 +416,8 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1\Tests" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects\Prefabs" />
+     <Folder Include="Assets\Resources\Enemy\Test" />
+     <Folder Include="Assets\Models\Creatures\kakashi-free-fire (2)\textures" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Models" />
      <Folder Include="Assets\UnityTechnologies" />
@@ -1065,6 +1085,10 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{2850684e-6d9a-3d97-3f3a-7083de641954}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
       <Project>{5cbc6401-284f-a083-3beb-d3fc6a16a995}</Project>
       <Name>Unity.EditorCoroutines.Editor</Name>
@@ -1084,6 +1108,10 @@
     <ProjectReference Include="Unity.Burst.csproj">
       <Project>{d8dea480-f266-ec18-6c2c-281c0bddcb0a}</Project>
       <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.csproj">
+      <Project>{d4151cc4-fd6e-5eff-4f8b-9bd9a65f29d6}</Project>
+      <Name>Unity.AI.Navigation</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{bcb3a217-8e64-22d2-a7de-f37d47aab9ec}</Project>
@@ -1157,6 +1185,10 @@
       <Project>{9106dc3d-2a81-20cb-99d4-dd815d139c2a}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
+      <Project>{14f123e0-6ad8-b303-9353-7da8d37dd87b}</Project>
+      <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
       <Project>{7de3227a-a2f6-5f80-c826-3e2cf86df341}</Project>
       <Name>Unity.Postprocessing.Editor</Name>
@@ -1180,6 +1212,10 @@
     <ProjectReference Include="Unity.Searcher.Editor.csproj">
       <Project>{3df2710b-a045-567b-07ae-b1938aea4b46}</Project>
       <Name>Unity.Searcher.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
+      <Project>{c106c3a2-955c-a58d-2b37-3c690e94912f}</Project>
+      <Name>Unity.AI.Navigation.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{d7bed546-4d08-8dc2-480a-39aa6ba9b2b7}</Project>

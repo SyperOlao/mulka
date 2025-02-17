@@ -5,9 +5,9 @@ namespace Enemy.Movement.StateMachine
     public class EnemyIdleState: EnemyBaseState
     {
         private float _timer;
-        private float _rotationAngle = 70.0f; 
-        private float _rotationSpeed = 2.0f; 
-        private Vector3 _rotationAxis = Vector3.up; 
+        private const float RotationAngle = 70.0f;
+        private const float RotationSpeed = 2.0f; 
+        private readonly Vector3 _rotationAxis = Vector3.up; 
 
         
         private Quaternion _originalRotation;
@@ -24,7 +24,7 @@ namespace Enemy.Movement.StateMachine
             var playerPosition = StateMachine.FieldOfView.LastPlayerPosition;
             FaceToDirection( playerPosition,  StateMachine.transform.position);
             _originalRotation = StateMachine.transform.rotation;
-            _targetRotation = Quaternion.Euler(_rotationAxis * _rotationAngle) * _originalRotation;
+            _targetRotation = Quaternion.Euler(_rotationAxis * RotationAngle) * _originalRotation;
         }
 
         public override void Tick()
@@ -41,7 +41,7 @@ namespace Enemy.Movement.StateMachine
         {
             if (_rotatingToTarget)
             {
-                StateMachine.transform.rotation = Quaternion.Lerp(StateMachine.transform.rotation, _targetRotation, Time.deltaTime * _rotationSpeed);
+                StateMachine.transform.rotation = Quaternion.Lerp(StateMachine.transform.rotation, _targetRotation, Time.deltaTime * RotationSpeed);
                 if (Quaternion.Angle(StateMachine.transform.rotation, _targetRotation) < 0.1f)
                 {
                    _rotatingToTarget = false;
@@ -49,7 +49,7 @@ namespace Enemy.Movement.StateMachine
             }
             else
             {
-                StateMachine.transform.rotation = Quaternion.Lerp(StateMachine.transform.rotation, _originalRotation, Time.deltaTime * _rotationSpeed);
+                StateMachine.transform.rotation = Quaternion.Lerp(StateMachine.transform.rotation, _originalRotation, Time.deltaTime * RotationSpeed);
                 if (Quaternion.Angle(StateMachine.transform.rotation, _originalRotation) < 0.1f)
                 {
                     _rotatingToTarget = true;

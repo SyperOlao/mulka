@@ -12,50 +12,48 @@ namespace Enemy.Movement.StateMachine
     {
         public Vector3 Velocity;
 
-        public float PointRadius { get; set; } = 0.01f;
-
-        public float LookRotationDampFactor { get; private set; } = 10f;
-
+        public float PointRadius { get; set; } = 3f;
+        
         public float MovementSpeed { get; private set; } = 5f;
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-        [SerializeField] private FieldOfView _fieldOfView;
-        [SerializeField] private List<PointsWithTimeStandby> _points;
-        [SerializeField] private int _currentPoint;
+        [SerializeField] private FieldOfView fieldOfView;
+        [SerializeField] private Vector3 startPosition;
+        [SerializeField] private int radiusStartFiled;
         
-        public List<PointsWithTimeStandby> Points => _points;
-        public FieldOfView FieldOfView => _fieldOfView;
-        public int CurrentPoint
-        {
-            get => _currentPoint;
-            set => _currentPoint = value;
-        }
+        public Vector3 StartPosition => startPosition;
+        public int RadiusStartFiled => radiusStartFiled;
+        public FieldOfView FieldOfView => fieldOfView;
 
-        private void OnEnable()
-        {
-            FieldOfView.IsPlayerVisible += SwitchToWarning;
-        }
-
-        private void OnDisable()
-        {
-            FieldOfView.IsPlayerVisible -= SwitchToWarning;
-        }
+      
+        // private void OnEnable()
+        // {
+        //     FieldOfView.IsPlayerVisible += SwitchToWarning;
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     FieldOfView.IsPlayerVisible -= SwitchToWarning;
+        // }
 
 
         private void SwitchToWarning()
         {
             if (FieldOfView.CanSeePlayer && CurrentState is not (EnemyAttackState or EnemyWarningState))
             {
-                SwitchState(new EnemyWarningState(this));        
+                SwitchState(new EnemyWarningState(this));
             }
+        }
+
+        private void Awake()
+        {
+            Animator = GetComponent<Animator>();
+            Rigidbody = GetComponent<Rigidbody>();
         }
 
         private void Start()
         {
-            Animator = GetComponent<Animator>();
-            Rigidbody = GetComponent<Rigidbody>();
-
             SwitchState(new EnemyMoveState(this));
         }
     }
