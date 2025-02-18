@@ -26,9 +26,10 @@ namespace Enemy.Movement.StateMachine
 
         private void MoveToPlayer()
         {
-            var lastPlayerPosition = StateMachine.FieldOfView.LastPlayerTransform.position;
+            var lastPlayerPosition = StateMachine.FieldOfView.playerRef.transform.position;
             Move(lastPlayerPosition);
         }
+        
 
         private void SwitchStateByTime()
         {
@@ -41,15 +42,15 @@ namespace Enemy.Movement.StateMachine
                 }
                 _timer = TimeToSwitchState;
             }
-            else
-            {
-                _timer -= Time.deltaTime;
-                if (_timer <= 0)
-                {
-                    StateMachine.SwitchState(new EnemyAttackState(StateMachine));
-                }
-                _timerToForget = TimeToSwitchState;
-            }
+            // else
+            // {
+            //     _timer -= Time.deltaTime;
+            //     if (_timer <= 0)
+            //     {
+            //         StateMachine.SwitchState(new EnemyAttackState(StateMachine));
+            //     }
+            //     _timerToForget = TimeToSwitchState;
+            // }
         }
 
         public override void Exit()

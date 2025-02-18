@@ -13,6 +13,11 @@ namespace Common.Utils
             Debug.DrawRay(position, Vector3.up * 2, Color.red, 2f);
             Object.Destroy(sphere, 8);
         }
+
+        public static void Dot(Vector3 position)
+        {
+            Debug.DrawRay(position, Vector3.up * 2, Color.red, 2f);
+        }
         
         public static void DebugPath(Vector3 startPosition, Vector3 endPosition)
         {

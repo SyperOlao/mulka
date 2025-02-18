@@ -41,7 +41,6 @@ namespace Enemy.Movement.StateMachine
             
             _targetPosition = GetRoamingPosition();
             _targetWaitTime = RandomPositionHelper.GetRandomTime();
-
             StateMachine.SwitchState(new EnemyIdleState(StateMachine, _targetWaitTime));
         }
 

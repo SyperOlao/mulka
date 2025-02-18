@@ -17,10 +17,18 @@ namespace Enemy.Movement.StateMachine
             StateMachine = stateMachine;
         }
 
+        protected void LookAt(Vector3 position)
+        {
+            var direction = position - StateMachine.transform.position;
+            direction.y = 0;
+
+            StateMachine.transform.rotation = Quaternion.LookRotation(direction);
+        }
 
         protected void Move(Vector3 endPosition)
         {
             StateMachine.NavMeshAgent.SetDestination(endPosition);
+            LookAt(endPosition);
             AnimateWalk();
         }
 

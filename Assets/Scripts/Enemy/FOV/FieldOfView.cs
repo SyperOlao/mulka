@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Common.Utils;
 using UnityEngine;
 
 namespace Enemy.FOV
@@ -10,7 +11,7 @@ namespace Enemy.FOV
         [Header("FOV Settings")]
         [SerializeField, Range(0, 360)] private float angle;
         [SerializeField] private float radius;
-        [SerializeField] private GameObject playerRef;
+        [SerializeField] public GameObject playerRef;
     
         [Header("References")]
         [SerializeField] private LayerMask targetMask;
@@ -42,11 +43,10 @@ namespace Enemy.FOV
         private void FieldOfViewCheck()
         {
             CanSeePlayer = false;
-            PlayerTransform = null;
-            
+
             var targetsCount = Physics.OverlapSphereNonAlloc(transform.position, radius, _targetsInViewRadius, targetMask);
            
-                // DrawFieldOfView();
+            
             for (var i = 0; i < targetsCount; i++)
             {
                 var targetTransform = _targetsInViewRadius[i].transform;
@@ -59,26 +59,12 @@ namespace Enemy.FOV
                 if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                     continue;
                 CanSeePlayer = true;
-                PlayerTransform = targetTransform;
                 LastPlayerTransform = targetTransform;
+                DebugHelper.Dot(LastPlayerTransform.position);
                 return;
             }
         }
         
         
-        private void DrawFieldOfView()
-        {
-            var position = transform.position;
-            var forward = transform.forward;
-            Debug.DrawRay(position,  forward * radius, Color.green);
-
-            const float step = 5f;
-            var locAngle = angle / 2;
-            for (; locAngle <= angle / 2; angle += step)
-            {
-                var direction = Quaternion.Euler(0, angle, 0) * transform.forward;
-                Debug.DrawRay(position, direction * radius, Color.yellow);
-            }
-        }
     }
 }
