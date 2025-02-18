@@ -9,6 +9,8 @@ namespace Enemy.Movement.StateMachine
     public abstract class EnemyBaseState : State
     {
         protected readonly EnemyStateMachine StateMachine;
+        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
+        private const float AnimationDampTime = 0.1f;
 
         protected EnemyBaseState(EnemyStateMachine stateMachine)
         {
@@ -16,17 +18,15 @@ namespace Enemy.Movement.StateMachine
         }
 
 
-        protected void Move(Vector3 startPosition, Vector3 endPosition, float step)
+        protected void Move(Vector3 endPosition)
         {
-            StateMachine.transform.position = Vector3.MoveTowards(startPosition, endPosition, step);
+            StateMachine.NavMeshAgent.SetDestination(endPosition);
+            AnimateWalk();
         }
 
-        protected void FaceToDirection(Vector3 targetPosition, Vector3 followerPosition)
+        private void AnimateWalk()
         {
-            if (targetPosition == Vector3.zero) return;
-            var directionToTarget = (targetPosition - followerPosition).normalized;
-            StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
-            
+            StateMachine.Animator.SetFloat(_moveSpeedHash, 1f, AnimationDampTime, Time.deltaTime);
         }
 
         protected Vector3 GetRoamingPosition()

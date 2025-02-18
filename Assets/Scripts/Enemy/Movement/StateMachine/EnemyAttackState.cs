@@ -11,13 +11,12 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
-    
         }
 
         public override void Tick()
         {
             MoveToPlayer();
-            if (StateMachine.FieldOfView.IsPlayerPositionInCircle) return;
+            if (!StateMachine.FieldOfView.CanSeePlayer) return;
             _timer -= Time.deltaTime;
             if (_timer <= 0)
             {
@@ -27,12 +26,8 @@ namespace Enemy.Movement.StateMachine
         
         private void MoveToPlayer()
         {
-            var step = StateMachine.MovementSpeed * Time.deltaTime * 0.4f;
-            var position = StateMachine.transform.position;
-            var playerPositionInCircle = StateMachine.FieldOfView.PlayerPositionInCircle;
-            Move(position, playerPositionInCircle,
-                step);
-            FaceToDirection( playerPositionInCircle, position);
+            var playerPositionInCircle = StateMachine.FieldOfView.LastPlayerTransform.position;
+            Move(playerPositionInCircle);
         }
 
         public override void Exit()

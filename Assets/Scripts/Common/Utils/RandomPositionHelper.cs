@@ -23,7 +23,7 @@ namespace Common.Utils
 
         public static int GetRandomTime()
         {
-            return Random.Range(1, 10);
+            return Random.Range(1, 4);
         }
     }
 }

@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Dialogs\Logic\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
+     <Compile Include="Assets\Scripts\Common\Utils\DebugHelper.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\LoadedCharacterService.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
@@ -1085,9 +1086,9 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
-      <Project>{2850684e-6d9a-3d97-3f3a-7083de641954}</Project>
-      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{a4cf5db2-dc2c-d61c-889e-82f4140b0fa8}</Project>
+      <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
       <Project>{5cbc6401-284f-a083-3beb-d3fc6a16a995}</Project>
@@ -1221,9 +1222,9 @@
       <Project>{d7bed546-4d08-8dc2-480a-39aa6ba9b2b7}</Project>
       <Name>Unity.VisualScripting.State</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{a4cf5db2-dc2c-d61c-889e-82f4140b0fa8}</Project>
-      <Name>Unity.VSCode.Editor</Name>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{2850684e-6d9a-3d97-3f3a-7083de641954}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{6d465d98-5a17-188b-f226-278c35a4d0f2}</Project>

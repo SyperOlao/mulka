@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataClasses;
 using Enemy.FOV;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.Movement.StateMachine
 {
@@ -12,8 +13,8 @@ namespace Enemy.Movement.StateMachine
     {
         public Vector3 Velocity;
 
-        public float PointRadius { get; set; } = 3f;
-        
+        public float PointRadius => 0.1f;
+
         public float MovementSpeed { get; private set; } = 5f;
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
@@ -21,35 +22,18 @@ namespace Enemy.Movement.StateMachine
         [SerializeField] private FieldOfView fieldOfView;
         [SerializeField] private Vector3 startPosition;
         [SerializeField] private int radiusStartFiled;
-        
         public Vector3 StartPosition => startPosition;
-        public int RadiusStartFiled => radiusStartFiled;
+        public int RadiusStartFiled => radiusStartFiled; 
         public FieldOfView FieldOfView => fieldOfView;
+        public NavMeshAgent NavMeshAgent { get; private set; }
 
-      
-        // private void OnEnable()
-        // {
-        //     FieldOfView.IsPlayerVisible += SwitchToWarning;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     FieldOfView.IsPlayerVisible -= SwitchToWarning;
-        // }
-
-
-        private void SwitchToWarning()
-        {
-            if (FieldOfView.CanSeePlayer && CurrentState is not (EnemyAttackState or EnemyWarningState))
-            {
-                SwitchState(new EnemyWarningState(this));
-            }
-        }
+        
 
         private void Awake()
         {
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
         }
 
         private void Start()
