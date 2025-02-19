@@ -165,6 +165,7 @@
      <Folder Include="Assets\Scripts\Dialogs\Logic" />
      <Folder Include="Assets\Scripts\Dialogs\Data\DialogData" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models" />
+     <Folder Include="Assets\Models\Weapon\wooden-stick\source\wooden_stick" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
      <Folder Include="Assets\Models" />
@@ -200,6 +201,8 @@
      <Folder Include="Assets\Models\Furniture\bed\FBX" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise256px" />
      <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Tests" />
+     <Folder Include="Assets\Models\Weapon\wooden-stick\source\wooden_stick\Materials" />
+     <Folder Include="Assets\Models\Weapon\wooden-stick\source" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
      <Folder Include="Assets\Models\Furniture\sofa" />
@@ -207,6 +210,7 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <Folder Include="Assets\Animation\Character\pictures" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6" />
+     <Folder Include="Assets\Models\Weapon" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7" />
      <Folder Include="Assets\Scripts\Interaction" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Tests" />
@@ -222,6 +226,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire &amp; Explosion Effects\Materials" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Scenes\Profiles" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro" />
+     <Folder Include="Assets\Models\Weapon\wooden-stick\textures" />
      <None Include="Assets\Resources\Dialogs\Fonts\6809_chargen\License.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
@@ -399,6 +404,7 @@
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib" />
      <Folder Include="Assets\Scripts\DataClasses" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Models" />
+     <Folder Include="Assets\Models\Weapon\wooden-stick" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise64px" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
