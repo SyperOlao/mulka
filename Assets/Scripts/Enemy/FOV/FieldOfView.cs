@@ -23,8 +23,6 @@ namespace Enemy.FOV
         private bool _previousPlayerVisible;
         private readonly Collider[] _targetsInViewRadius = new Collider[10];
         
-        public Transform PlayerTransform { get; private set; }
-        public Transform LastPlayerTransform { get; private set; }
         private void Start()
         {
             playerRef = GameObject.Find(nameof(Player));
@@ -59,8 +57,6 @@ namespace Enemy.FOV
                 if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                     continue;
                 CanSeePlayer = true;
-                LastPlayerTransform = targetTransform;
-                DebugHelper.Dot(LastPlayerTransform.position);
                 return;
             }
         }

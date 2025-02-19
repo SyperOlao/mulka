@@ -26,7 +26,7 @@ namespace Enemy.Movement.StateMachine
         
         private void MoveToPlayer()
         {
-            var playerPositionInCircle = StateMachine.FieldOfView.LastPlayerTransform.position;
+            var playerPositionInCircle = StateMachine.FieldOfView.playerRef.transform.position;
             Move(playerPositionInCircle);
         }
 
