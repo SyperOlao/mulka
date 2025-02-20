@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\UI\Dialog\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
@@ -89,7 +90,7 @@
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\DialogData\DialogDataDto.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
-     <Compile Include="Assets\Scripts\Dialogs\Logic\DialogueManager.cs" />
+     <Compile Include="Assets\Scripts\Common\Camera\CameraController.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FaceCamera\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
      <Compile Include="Assets\Scripts\Player\Interaction\PlayerInteract.cs" />
@@ -148,6 +149,7 @@
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Graphics" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Gizmos" />
      <Folder Include="Assets\Scripts\Enemy" />
+     <Folder Include="Assets\Scripts\Common\Camera" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Waveform.compute" />
      <Folder Include="Assets\Scripts\Player\Movement" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7\Tests" />
@@ -292,6 +294,7 @@
      <Folder Include="Assets\Animation\Character\Materials" />
      <Folder Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0" />
      <Folder Include="Assets\Models\Furniture\sofa\Materials" />
+     <Folder Include="Assets\Scripts\UI\Dialog" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs" />

@@ -103,6 +103,7 @@ namespace Dialogs.Logic
         {
             dialogueText.text = "ENDED!!!";
             animator.SetBool(_isOpenHash, false);
+            container.SetActive(false);
             _isDialogueActive = false;
            
         }
