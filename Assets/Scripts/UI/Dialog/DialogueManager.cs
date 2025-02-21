@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Common.Utils;
 using Dialogs.Data.Character;
 using Dialogs.Data.DialogData;
@@ -9,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dialogs.Logic
+namespace UI.Dialog
 {
     public class DialogueManager : MonoBehaviour
     {
@@ -27,7 +26,6 @@ namespace Dialogs.Logic
 
         public void Start() 
         {
-            container.SetActive(true);
             _dialogCharacterList = new LoadedCharacterService();
             _currentDialogue = new Queue<DialogDataDto>();
             _sentences = new Queue<string>();
@@ -36,6 +34,7 @@ namespace Dialogs.Logic
         public void StartDialogue(List<DialogDataDto> dialogue)
         {
             if (_isDialogueActive) return;
+            container.SetActive(true);
             _isDialogueActive = true;
             animator.SetBool(_isOpenHash, true);
             foreach (var replica in dialogue)

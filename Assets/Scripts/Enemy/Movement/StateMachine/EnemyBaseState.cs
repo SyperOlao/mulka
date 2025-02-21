@@ -17,7 +17,7 @@ namespace Enemy.Movement.StateMachine
             StateMachine = stateMachine;
         }
 
-        protected void LookAt(Vector3 position)
+        private void LookAt(Vector3 position)
         {
             var direction = position - StateMachine.transform.position;
             direction.y = 0;

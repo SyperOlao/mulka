@@ -102,6 +102,7 @@
      <None Include="Library\PackageCache\com.unity.settings-manager@2.0.1\package.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Prefabs" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Scripts\Player\Attack\StateMachine" />
      <Folder Include="Library\PackageCache\com.unity.test-framework@1.1.33" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
      <Folder Include="Assets\Scripts\Spawner" />
@@ -391,6 +392,7 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Sprites" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\D3D12.hlsl" />
+     <None Include="Assets\Resources\Shaders\PlaneShader.shader" />
      <Folder Include="Assets\Animation\Enemy\Test" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
@@ -411,6 +413,7 @@
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Textures\BlueNoise64px" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials" />
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\Resources\Shaders" />
      <Folder Include="Assets\Models\Creatures\kakashi-free-fire (2)\source" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\Unity.Burst.Unsafe.xml" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials" />
