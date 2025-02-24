@@ -7,7 +7,7 @@ namespace Player.Movement.StateMachine
     [RequireComponent(typeof(InputReader))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerStateMachine: Common.StateMachine.StateMachine
+    public class PlayerMoveStateMachine: Common.StateMachine.StateMachine
     {
         public Vector3 Velocity;
         public float LookRotationDampFactor { get; private set; } = 10f;

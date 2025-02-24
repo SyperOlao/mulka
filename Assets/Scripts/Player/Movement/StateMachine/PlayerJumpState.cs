@@ -9,16 +9,16 @@ namespace Player.Movement.StateMachine
         private const float JumpForce = 0.5f;
         private readonly float _additionJumpForce;
 
-        public PlayerJumpState(PlayerStateMachine stateMachine, float additionJumpForce = 1f) : base(stateMachine)
+        public PlayerJumpState(PlayerMoveStateMachine moveStateMachine, float additionJumpForce = 1f) : base(moveStateMachine)
         {
             _additionJumpForce = additionJumpForce;
         }
 
         public override void Enter()
         {
-            StateMachine.Velocity.y = Physics.gravity.y;
+            MoveStateMachine.Velocity.y = Physics.gravity.y;
             FaceMoveDirection();
-            StateMachine.Animator.SetBool(_inJumpingHash, true);
+            MoveStateMachine.Animator.SetBool(_inJumpingHash, true);
             JumpCalculation();
             _isGrounded = false;
         }
@@ -28,8 +28,8 @@ namespace Player.Movement.StateMachine
             ApplyGravity();
             if (_isGrounded)
             {
-                StateMachine.Animator.SetBool(_inJumpingHash, false);
-                StateMachine.SwitchState(new PlayerMoveState(StateMachine));
+                MoveStateMachine.Animator.SetBool(_inJumpingHash, false);
+                MoveStateMachine.SwitchState(new PlayerMoveState(MoveStateMachine));
                 return;
             }
 
@@ -41,27 +41,27 @@ namespace Player.Movement.StateMachine
         {
             CalculateMoveDirection();
             FaceMoveDirection();
-            _isGrounded = CheckCollisionOverlap(StateMachine.transform.position);
+            _isGrounded = CheckCollisionOverlap(MoveStateMachine.transform.position);
         }
 
         private void ApplyGravity()
         {
             if (_isGrounded) return;
 
-            var gravityScale = StateMachine.Velocity.y > 0 ? 0.7f : 1.5f;
-            StateMachine.Velocity.y += Physics.gravity.y * gravityScale * Time.deltaTime;
+            var gravityScale = MoveStateMachine.Velocity.y > 0 ? 0.7f : 1.5f;
+            MoveStateMachine.Velocity.y += Physics.gravity.y * gravityScale * Time.deltaTime;
 
-            var forceValue = _additionJumpForce * StateMachine.Velocity;
-            StateMachine.Controller.Move(forceValue * Time.deltaTime);
+            var forceValue = _additionJumpForce * MoveStateMachine.Velocity;
+            MoveStateMachine.Controller.Move(forceValue * Time.deltaTime);
         }
 
         private void JumpCalculation()
         {
-            StateMachine.Velocity.y = Mathf.Sqrt(2 * JumpForce * -Physics.gravity.y);
+            MoveStateMachine.Velocity.y = Mathf.Sqrt(2 * JumpForce * -Physics.gravity.y);
         }
         public override void Exit()
         {
-            StateMachine.Velocity.y = Physics.gravity.y;
+            MoveStateMachine.Velocity.y = Physics.gravity.y;
         }
     }
 }

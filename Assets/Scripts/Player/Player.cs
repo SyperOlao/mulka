@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(PlayerStateMachine))]
+    [RequireComponent(typeof(PlayerMoveStateMachine))]
     public class Player: MonoBehaviour
     {
         

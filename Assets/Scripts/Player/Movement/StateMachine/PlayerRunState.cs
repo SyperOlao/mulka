@@ -6,13 +6,13 @@ namespace Player.Movement.StateMachine
     {
         private const int Acceleration = 2;
         
-        public PlayerRunState(PlayerStateMachine stateMachine) : base(stateMachine)
+        public PlayerRunState(PlayerMoveStateMachine moveStateMachine) : base(moveStateMachine)
         {
         }
         
         public override void Enter()
         {
-            StateMachine.Velocity.y = Physics.gravity.y;
+            MoveStateMachine.Velocity.y = Physics.gravity.y;
             
         }
 
@@ -22,13 +22,13 @@ namespace Player.Movement.StateMachine
             CalculateMoveDirection();
             FaceMoveDirection();
             MovementSpeedCalculation(1f, Acceleration);
-            if (StateMachine.JumpAction.IsPressed())
+            if (MoveStateMachine.JumpAction.IsPressed())
             {
-                StateMachine.SwitchState(new PlayerJumpState(StateMachine, 2f));
+                MoveStateMachine.SwitchState(new PlayerJumpState(MoveStateMachine, 2f));
             }
-            if (!StateMachine.RunAction.IsPressed())
+            if (!MoveStateMachine.RunAction.IsPressed())
             {
-                StateMachine.SwitchState(new PlayerMoveState(StateMachine));
+                MoveStateMachine.SwitchState(new PlayerMoveState(MoveStateMachine));
             }
 
         }
