@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\UI\Interact\UIInteract.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Logic\DialogTrigger.cs" />
+     <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\DebugHelper.cs" />
@@ -91,10 +92,14 @@
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\DialogData\DialogDataDto.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
+     <Compile Include="Assets\Scripts\Common\Enums\ControlEnum.cs" />
+     <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerIdleAttackState.cs" />
      <Compile Include="Assets\Scripts\Common\Camera\CameraController.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FaceCamera\FaceCamera.cs" />
+     <Compile Include="Assets\Scripts\Common\Enums\PlayerAnimatorEnum.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
      <Compile Include="Assets\Scripts\Player\Interaction\PlayerInteract.cs" />
+     <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerDefaultState.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models" />
@@ -387,6 +392,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts" />
      <Folder Include="Assets\Animation\UI" />
      <Folder Include="Assets\Scenes\SampleScene" />
+     <Folder Include="Assets\Scripts\Common\Enums" />
      <Folder Include="Assets\Scripts\Enemy\Health" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\XboxOne.hlsl" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Copy.shader" />

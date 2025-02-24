@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Common.Enums;
+using UnityEngine;
 
 namespace Player.Movement.StateMachine
 {
     public class PlayerJumpState : PlayerBaseState
     {
-        private readonly int _inJumpingHash = Animator.StringToHash("isJumping");
+        private readonly int _inJumpingHash = Animator.StringToHash(PlayerAnimatorEnum.IsJumping);
         private bool _isGrounded;
         private const float JumpForce = 0.5f;
         private readonly float _additionJumpForce;

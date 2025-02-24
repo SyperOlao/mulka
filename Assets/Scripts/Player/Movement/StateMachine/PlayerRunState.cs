@@ -30,8 +30,8 @@ namespace Player.Movement.StateMachine
             {
                 MoveStateMachine.SwitchState(new PlayerMoveState(MoveStateMachine));
             }
-
         }
+        
         
         public override void Exit()
         {

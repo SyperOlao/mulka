@@ -1,7 +1,14 @@
-﻿namespace Player.Attack.StateMachine
+﻿using Common.StateMachine;
+
+namespace Player.Attack.StateMachine
 {
-    public class PlayerBaseAttackState: Common.StateMachine.StateMachine
+    public abstract class PlayerBaseAttackState: State
     {
-        
+        protected readonly PlayerAttackStateMachine StateMachine;
+
+        protected PlayerBaseAttackState(PlayerAttackStateMachine state)
+        {
+            StateMachine = state;
+        }
     }
-}
+} 

@@ -1,12 +1,13 @@
-﻿using Unity.VisualScripting;
+﻿using Common.Enums;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player.Movement.StateMachine
 {
     public class PlayerMoveState : PlayerBaseState
     {
-        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
-        private readonly int _moveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
+        private readonly int _moveSpeedHash = Animator.StringToHash(PlayerAnimatorEnum.MoveSpeed);
+        private readonly int _moveBlendTreeHash = Animator.StringToHash(PlayerAnimatorEnum.MoveBlendTree);
         private const float AnimationDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
    

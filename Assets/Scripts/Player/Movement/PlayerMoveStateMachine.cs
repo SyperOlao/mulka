@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Common.Enums;
+using Player.Movement.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player.Movement.StateMachine
+namespace Player.Movement
 {
     [RequireComponent(typeof(InputReader))]
     [RequireComponent(typeof(Animator))]
@@ -29,11 +30,12 @@ namespace Player.Movement.StateMachine
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-            RunAction = _playerInput.actions["RunQuick"];
-            JumpAction = _playerInput.actions["Jump"];
-       
+            RunAction = _playerInput.actions[ControlEnum.RunQuick];
+            JumpAction = _playerInput.actions[ControlEnum.Jump];
+            
         }
-    
+        
+        
         private void Start()
         {
             InputReader = GetComponent<InputReader>();
@@ -42,16 +44,7 @@ namespace Player.Movement.StateMachine
             
             SwitchState(new PlayerMoveState(this));
         }
-
-        public void SetIdleState()
-        {
-            SwitchState(new PlayerMoveState(this));
-        }
-
-        public void SetMoveState()
-        {
-            SwitchState(new PlayerIdleState(this));
-        }
+        
         
     }
 }

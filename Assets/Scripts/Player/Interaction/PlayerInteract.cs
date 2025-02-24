@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common.Enums;
 using Interfaces;
 using JetBrains.Annotations;
 using Player.Movement.StateMachine;
@@ -20,14 +21,13 @@ namespace Player.Interaction
         public void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-            _interactAction = _playerInput.actions["Interact"];
+            _interactAction = _playerInput.actions[ControlEnum.Interact];
             _interactAction.performed += OnInteractPerformed;
             
         }
 
         private void OnDestroy()
         {
-           
             _interactAction.performed -= OnInteractPerformed;
         }
 

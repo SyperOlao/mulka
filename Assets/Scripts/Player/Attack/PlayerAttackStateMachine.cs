@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using Common.Enums;
+using Player.Attack.StateMachine;
+using Player.Movement.StateMachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player.Attack
 {
@@ -7,10 +12,32 @@ namespace Player.Attack
     {
         [SerializeField, Min(0)] private int damage;
         [SerializeField] private float attackSpeed;
+        [SerializeField] private float throwRadius;
+        [SerializeField] private float throwSpeed;
         
+        private PlayerInput _playerInput;
+        public Animator Animator { get; private set; }
         public int Damage => damage;
+        private InputAction _attackAction;
+        private void Awake()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+            _attackAction = _playerInput.actions[ControlEnum.Attack1];
+            _attackAction.performed += OnAttack;
+            Animator = GetComponent<Animator>();
+        }
         
-        
-        
+
+        private void OnAttack(InputAction.CallbackContext context)
+        {
+            Debug.Log("PlayerAttackStateMachine");
+            SwitchState(new PlayerAttack(this));
+            
+        }
+
+        private void OnDestroy()
+        {
+            _attackAction.performed -= OnAttack;
+        }
     }
 }
