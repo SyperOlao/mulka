@@ -15,23 +15,29 @@ namespace Enemy
     [RequireComponent(typeof(Health.Health))]
     public class Enemy: MonoBehaviour, IDamageable
     {
-     
         private Health.Health _health;
-
         private Animator _animator;
-        private readonly int _dyingHash = Animator.StringToHash(EnemyAnimatorEnum.Dying);
+        private EnemyStateMachine _stateMachine;
+        private readonly int _injureHash = Animator.StringToHash(EnemyAnimatorEnum.Injure);
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             _health = GetComponent<Health.Health>();
+            _stateMachine = GetComponent<EnemyStateMachine>();
         }
 
         public void OnTakeDamage(int damage)
         {
+            Debug.Log("Dddd");
             _health.OnTakeDamage(damage);
             if (_health.CurrentHealth <= 0)
             {
-                _animator.SetTrigger(_dyingHash);
+                _stateMachine.SwitchState(new EnemyDyingState(_stateMachine));
+            }
+            else
+            {
+                _animator.SetBool(_injureHash, true);
             }
         }
         

@@ -91,6 +91,7 @@
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\DialogData\DialogDataDto.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyDyingState.cs" />
      <Compile Include="Assets\Scripts\Common\Enums\ControlEnum.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerIdleAttackState.cs" />
      <Compile Include="Assets\Scripts\Common\Camera\CameraController.cs" />

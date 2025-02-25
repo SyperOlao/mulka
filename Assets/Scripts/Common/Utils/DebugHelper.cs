@@ -4,6 +4,8 @@ namespace Common.Utils
 {
     public static class DebugHelper
     {
+      
+        
         public static void DebugEndPosition(Vector3 position)
         {
             var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -14,14 +16,16 @@ namespace Common.Utils
             Object.Destroy(sphere, 8);
         }
 
-        public static void Dot(Vector3 position)
+        public static void Dot(Vector3 position, Color color)
         {
-            Debug.DrawRay(position, Vector3.up * 2, Color.red, 2f);
+            Debug.DrawRay(position, Vector3.up * 2, color, 2f);
         }
         
         public static void DebugPath(Vector3 startPosition, Vector3 endPosition)
         {
-            Debug.DrawLine(startPosition, endPosition, Color.green, 10f);
+            Dot(startPosition,  Color.red);
+            Debug.DrawLine(startPosition, endPosition, Color.green);
+            Dot(endPosition,  Color.blue);
         }
         
         
