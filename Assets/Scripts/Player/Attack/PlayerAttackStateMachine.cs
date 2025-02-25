@@ -11,6 +11,8 @@ namespace Player.Attack
     public class PlayerAttackStateMachine: Common.StateMachine.StateMachine
     {
         [SerializeField, Min(0)] private int damage;
+        [SerializeField] private Transform fistTransform;
+        [SerializeField] private float attackRange = 1f;
         [SerializeField] private float attackSpeed;
         [SerializeField] private float throwRadius;
         [SerializeField] private float throwSpeed;
@@ -18,6 +20,8 @@ namespace Player.Attack
         private PlayerInput _playerInput;
         public Animator Animator { get; private set; }
         public int Damage => damage;
+        public float AttackRange => attackRange;
+        public Transform FistTransform => fistTransform;
         private InputAction _attackAction;
         private void Awake()
         {
@@ -30,7 +34,6 @@ namespace Player.Attack
 
         private void OnAttack(InputAction.CallbackContext context)
         {
-            Debug.Log("PlayerAttackStateMachine");
             SwitchState(new PlayerAttack(this));
             
         }

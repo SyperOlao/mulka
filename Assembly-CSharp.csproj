@@ -51,9 +51,9 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\AdjustTimeScale.cs" />
-     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerJumpState.cs" />
+     <Compile Include="Assets\Scripts\Common\Enums\EnemyAnimatorEnum.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCharacterMotor.cs" />
      <Compile Include="Assets\Scripts\Enemy\FOV\FieldOfView.cs" />
      <Compile Include="Assets\Scripts\Common\Timer\Timer.cs" />
@@ -73,7 +73,6 @@
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerIdleState.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\UI\Dialog\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMoveStateMachine.cs" />

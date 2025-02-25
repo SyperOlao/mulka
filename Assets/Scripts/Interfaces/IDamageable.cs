@@ -2,6 +2,6 @@
 {
     public interface IDamageable
     {
-        void OnTakeDamage(float damage);
+        void OnTakeDamage(int damage);
     }
 }
