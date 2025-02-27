@@ -13,10 +13,17 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
+            StateMachine.CapsuleCollider.enabled = false;
             StateMachine.Velocity.y = Physics.gravity.y;
             StateMachine.Animator.SetTrigger(_dyingHash);
             StateMachine.NavMeshAgent.enabled = false;
-            StateMachine.transform.rotation *= Quaternion.Euler(90, 0, 0);
+            //  StateMachine.Animator.applyRootMotion = false;
+            //StateMachine.transform.rotation *= Quaternion.Euler(90, 0, 0);
+        }
+
+        private object GetComponent<T>()
+        {
+            throw new System.NotImplementedException();
         }
 
         public override void Tick()

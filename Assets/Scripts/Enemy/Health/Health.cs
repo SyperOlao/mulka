@@ -17,6 +17,11 @@ namespace Enemy.Health
 
         public void OnTakeDamage(int damage)
         {
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+                return;
+            }
             CurrentHealth -= damage;
         }
     }

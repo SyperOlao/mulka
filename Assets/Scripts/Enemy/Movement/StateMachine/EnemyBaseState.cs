@@ -11,7 +11,7 @@ namespace Enemy.Movement.StateMachine
         protected readonly EnemyStateMachine StateMachine;
         private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
         private const float AnimationDampTime = 0.1f;
-
+        
         protected EnemyBaseState(EnemyStateMachine stateMachine)
         {
             StateMachine = stateMachine;

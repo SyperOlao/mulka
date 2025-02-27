@@ -26,7 +26,8 @@ namespace Enemy.Movement.StateMachine
         public int RadiusStartFiled => radiusStartFiled; 
         public FieldOfView FieldOfView => fieldOfView;
         public NavMeshAgent NavMeshAgent { get; private set; }
-
+        
+        public CapsuleCollider CapsuleCollider { get; private set; }
         
 
         private void Awake()
@@ -34,6 +35,7 @@ namespace Enemy.Movement.StateMachine
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
             NavMeshAgent = GetComponent<NavMeshAgent>();
+            CapsuleCollider = GetComponent<CapsuleCollider>();
         }
 
         private void Start()

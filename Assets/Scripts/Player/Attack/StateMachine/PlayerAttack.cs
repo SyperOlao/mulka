@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Common.Enums;
 using Common.Utils;
 using Interfaces;
@@ -11,49 +12,68 @@ namespace Player.Attack.StateMachine
     {
         private readonly int _attackHash = Animator.StringToHash(PlayerAnimatorEnum.IsAttack);
         private float _timer = 1f;
-        private List<IDamageable> _alreadyDamagedEnemy = new List<IDamageable>();
+        private readonly HashSet<IDamageable> _enemiesInRange = new();
+        private readonly Collider[] _hitColliders = new Collider[10];
+        private const float CollisionDelay = 0.2f;
 
         public PlayerAttack(PlayerAttackStateMachine state) : base(state)
         {
         }
 
+
         public override void Enter()
         {
             StateMachine.Animator.SetInteger(_attackHash, 1);
-            Damage();
         }
 
         public override void Tick()
         {
             _timer -= Time.deltaTime;
-            Damage();
+            CheckForDamageableInBox();
             if (_timer <= 0)
             {
                 StateMachine.SwitchState(new PlayerIdleAttackState(StateMachine));
             }
         }
 
+
+        private void CheckForDamageableInBox()
+        {
+            var fistLeftCollider = StateMachine.FistLeftCollider;
+            var boxCenter = fistLeftCollider.transform.position;
+            var boxSize = fistLeftCollider.bounds.size;
+
+            var colliderCount = Physics.OverlapBoxNonAlloc(boxCenter, boxSize / 2, _hitColliders, Quaternion.identity);
+
+            for (var i = 0; i < colliderCount; i++)
+            {
+                if (!_hitColliders[i].TryGetComponent(out IDamageable damageable)) continue;
+                if (_enemiesInRange.Add(damageable))
+                {
+                    Damage(damageable);
+                }
+            }
+        }
+
+        private void Damage(IDamageable enemy)
+        {
+            enemy.OnTakeDamage(StateMachine.Damage);
+        }
+        
+
+
         public override void Exit()
         {
             StateMachine.Animator.SetInteger(_attackHash, 4);
+            EndDamage();
         }
 
-        private void Damage()
+        private void EndDamage()
         {
-            var attackDirection = StateMachine.FistLeft.forward;
-            var attackStartPos1 = StateMachine.FistLeft.position; 
-            var attackStartPos =attackStartPos1 + attackDirection * 0.1f;
-
-            DebugHelper.DebugPath(attackStartPos, attackStartPos1);
-            if (!Physics.Raycast(attackStartPos, attackStartPos1, out var hit,
-                StateMachine.AttackRange)) return;
-           
-            if (!hit.collider.TryGetComponent(out IDamageable damageable)) return;
-           
-            damageable.OnTakeDamage(StateMachine.Damage);
-            StateMachine.SwitchState(new PlayerIdleAttackState(StateMachine));
-          
-          //  Debug.Log("Попал по врагу и нанёс урон!");
+            foreach (var enemy in _enemiesInRange)
+            {
+                enemy.EndDamage();
+            }
         }
     }
 }

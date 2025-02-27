@@ -29,8 +29,8 @@ namespace Enemy
 
         public void OnTakeDamage(int damage)
         {
-            Debug.Log("Dddd");
             _health.OnTakeDamage(damage);
+            Debug.Log("ENEMY"+ _health.CurrentHealth);
             if (_health.CurrentHealth <= 0)
             {
                 _stateMachine.SwitchState(new EnemyDyingState(_stateMachine));
@@ -39,6 +39,11 @@ namespace Enemy
             {
                 _animator.SetBool(_injureHash, true);
             }
+        }
+
+        public void EndDamage()
+        {
+            _animator.SetBool(_injureHash, false);
         }
         
     }

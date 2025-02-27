@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Common.Enums;
+using Interfaces;
 using Player.Attack.StateMachine;
 using Player.Movement.StateMachine;
 using UnityEngine;
@@ -11,7 +13,7 @@ namespace Player.Attack
     public class PlayerAttackStateMachine : Common.StateMachine.StateMachine
     {
         [SerializeField, Min(0)] private int damage;
-        [SerializeField] private Transform fistLeft;
+        [SerializeField] private Collider fistLeftCollider;
         [SerializeField] private Transform fistRight;
         [SerializeField] private float attackRange = 1f;
         [SerializeField] private float attackSpeed;
@@ -22,12 +24,14 @@ namespace Player.Attack
         public Animator Animator { get; private set; }
         public int Damage => damage;
         public float AttackRange => attackRange;
-        public Transform FistLeft => fistLeft;
+        public Collider FistLeftCollider => fistLeftCollider;
         public Transform FistRight => fistRight;
         private InputAction _attackAction;
+        private readonly HashSet<IDamageable> _enemiesInRange = new();
 
         public int AttackCombo { set; get; }
-
+        
+        
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
