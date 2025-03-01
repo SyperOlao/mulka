@@ -30,7 +30,6 @@ namespace Enemy
         public void OnTakeDamage(int damage)
         {
             _health.OnTakeDamage(damage);
-            Debug.Log("ENEMY"+ _health.CurrentHealth);
             if (_health.CurrentHealth <= 0)
             {
                 _stateMachine.Death();

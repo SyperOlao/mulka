@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerBaseAttackState.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\RandomPositionHelper.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Common\Camera\Billboard.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\HealthBar.cs" />

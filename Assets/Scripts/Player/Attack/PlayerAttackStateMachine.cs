@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Common.Enums;
 using Enemy.Movement.StateMachine;
@@ -16,9 +17,9 @@ namespace Player.Attack
     {
         [SerializeField, Min(0)] private int damage;
         [SerializeField] private Collider fistLeftCollider;
-        [SerializeField] private Transform fistRight;
+        [SerializeField] private Collider fistRightCollider;
         [SerializeField] private float attackRange = 1f;
-        [SerializeField] private float attackSpeed;
+        [SerializeField] private float attackSpeed = 1f;
         [SerializeField] private float throwRadius;
         [SerializeField] private float throwSpeed;
 
@@ -27,9 +28,8 @@ namespace Player.Attack
         public int Damage => damage;
         public float AttackRange => attackRange;
         public Collider FistLeftCollider => fistLeftCollider;
-        public Transform FistRight => fistRight;
+        public Collider FistRightCollider => fistRightCollider;
         private InputAction _attackAction;
-        private readonly HashSet<IDamageable> _enemiesInRange = new();
 
         public int AttackCombo { set; get; }
 
@@ -37,14 +37,21 @@ namespace Player.Attack
         {
             _playerInput = GetComponent<PlayerInput>();
             _attackAction = _playerInput.actions[ControlEnum.Attack1];
-            _attackAction.performed += OnAttack;
             Animator = GetComponent<Animator>();
+            _attackAction.performed += OnAttack;
         }
-
+        
+        private IEnumerator WaitForAttackAnimation()
+        {
+            yield return new WaitForSeconds(attackSpeed); 
+            SwitchState(new PlayerIdleAttackState(this));
+        }
+        
 
         private void OnAttack(InputAction.CallbackContext context)
         {
-            SwitchState(new PlayerAttack(this));
+            SwitchState(new PlayerAttack(this, fistLeftCollider));
+            StartCoroutine(WaitForAttackAnimation());
         }
 
         private void OnDestroy()

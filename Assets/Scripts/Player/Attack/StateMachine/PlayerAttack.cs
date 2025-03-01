@@ -15,9 +15,10 @@ namespace Player.Attack.StateMachine
         private readonly HashSet<IDamageable> _enemiesInRange = new();
         private readonly Collider[] _hitColliders = new Collider[10];
         private const float CollisionDelay = 0.2f;
-
-        public PlayerAttack(PlayerAttackStateMachine state) : base(state)
+        private readonly Collider _playerWeaponCollider;
+        public PlayerAttack(PlayerAttackStateMachine state, Collider collider) : base(state)
         {
+            _playerWeaponCollider = collider;
         }
 
 
@@ -30,18 +31,14 @@ namespace Player.Attack.StateMachine
         {
             _timer -= Time.deltaTime;
             CheckForDamageableInBox();
-            if (_timer <= 0)
-            {
-                StateMachine.SwitchState(new PlayerIdleAttackState(StateMachine));
-            }
         }
 
 
         private void CheckForDamageableInBox()
         {
-            var fistLeftCollider = StateMachine.FistLeftCollider;
-            var boxCenter = fistLeftCollider.transform.position;
-            var boxSize = fistLeftCollider.bounds.size;
+          
+            var boxCenter = _playerWeaponCollider.transform.position;
+            var boxSize = _playerWeaponCollider.bounds.size;
 
             var colliderCount = Physics.OverlapBoxNonAlloc(boxCenter, boxSize / 2, _hitColliders, Quaternion.identity);
 
