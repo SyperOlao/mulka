@@ -8,15 +8,12 @@ using UnityEngine;
 
 namespace Player.Attack.StateMachine
 {
-    public class PlayerAttack : PlayerBaseAttackState
+    public class PlayerMeleeAttack : PlayerBaseAttackState
     {
-        private readonly int _attackHash = Animator.StringToHash(PlayerAnimatorEnum.IsAttack);
-        private float _timer = 1f;
         private readonly HashSet<IDamageable> _enemiesInRange = new();
         private readonly Collider[] _hitColliders = new Collider[10];
-        private const float CollisionDelay = 0.2f;
         private readonly Collider _playerWeaponCollider;
-        public PlayerAttack(PlayerAttackStateMachine state, Collider collider) : base(state)
+        public PlayerMeleeAttack(PlayerAttackStateMachine state, Collider collider) : base(state)
         {
             _playerWeaponCollider = collider;
         }
@@ -24,12 +21,10 @@ namespace Player.Attack.StateMachine
 
         public override void Enter()
         {
-            StateMachine.Animator.SetInteger(_attackHash, 1);
         }
 
         public override void Tick()
         {
-            _timer -= Time.deltaTime;
             CheckForDamageableInBox();
         }
 
@@ -54,14 +49,13 @@ namespace Player.Attack.StateMachine
 
         private void Damage(IDamageable enemy)
         {
-            enemy.OnTakeDamage(StateMachine.Damage);
+            enemy.OnTakeDamage(StateMachine.Weapon.Damage);
         }
         
 
 
         public override void Exit()
         {
-            StateMachine.Animator.SetInteger(_attackHash, 4);
             EndDamage();
         }
 
