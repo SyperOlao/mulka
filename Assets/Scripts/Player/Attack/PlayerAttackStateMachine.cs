@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Enums;
+using Enemy.Movement.StateMachine;
 using Interfaces;
 using Player.Attack.StateMachine;
+using Player.Movement;
 using Player.Movement.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,8 +32,7 @@ namespace Player.Attack
         private readonly HashSet<IDamageable> _enemiesInRange = new();
 
         public int AttackCombo { set; get; }
-        
-        
+
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();

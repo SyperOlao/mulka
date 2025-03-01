@@ -8,8 +8,9 @@ namespace Enemy.Health
     public class Health : MonoBehaviour
     {
         [SerializeField, Min(1)] private int maxHealth = 100;
-        public float CurrentHealth { get; private set; }
-
+        public event Action TakeDamage;
+        public int CurrentHealth { get; private set; }
+        public int MaxHealth => maxHealth;
         private void Start()
         {
             CurrentHealth = maxHealth;
@@ -23,6 +24,7 @@ namespace Enemy.Health
                 return;
             }
             CurrentHealth -= damage;
+            TakeDamage?.Invoke();
         }
     }
 }

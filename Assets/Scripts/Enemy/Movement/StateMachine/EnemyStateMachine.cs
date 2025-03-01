@@ -42,5 +42,10 @@ namespace Enemy.Movement.StateMachine
         {
             SwitchState(new EnemyMoveState(this));
         }
+
+        public void Death()
+        {
+            SwitchState(new EnemyDyingState(this));
+        }
     }
 }

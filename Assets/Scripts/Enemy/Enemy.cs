@@ -19,7 +19,7 @@ namespace Enemy
         private Animator _animator;
         private EnemyStateMachine _stateMachine;
         private readonly int _injureHash = Animator.StringToHash(EnemyAnimatorEnum.Injure);
-
+   
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -33,7 +33,7 @@ namespace Enemy
             Debug.Log("ENEMY"+ _health.CurrentHealth);
             if (_health.CurrentHealth <= 0)
             {
-                _stateMachine.SwitchState(new EnemyDyingState(_stateMachine));
+                _stateMachine.Death();
             }
             else
             {

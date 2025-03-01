@@ -17,14 +17,8 @@ namespace Enemy.Movement.StateMachine
             StateMachine.Velocity.y = Physics.gravity.y;
             StateMachine.Animator.SetTrigger(_dyingHash);
             StateMachine.NavMeshAgent.enabled = false;
-            //  StateMachine.Animator.applyRootMotion = false;
-            //StateMachine.transform.rotation *= Quaternion.Euler(90, 0, 0);
         }
-
-        private object GetComponent<T>()
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         public override void Tick()
         {

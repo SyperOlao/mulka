@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\UI\Battle\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\UI\Dialog\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
@@ -127,6 +128,7 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
+     <Folder Include="Assets\Resources\UI\Sprites" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator" />
      <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
