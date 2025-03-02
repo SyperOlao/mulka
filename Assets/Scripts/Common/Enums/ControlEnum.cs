@@ -9,6 +9,7 @@
         public const string RunQuick = "RunQuick";
         public const string Move = "Move";
         public const string Look = "Look";
+        public const string DrawWeapon = "DrawWeapon";
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Player.Attack;
+﻿using JetBrains.Annotations;
+using Player.Attack;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,12 +14,21 @@ namespace Interfaces
         [SerializeField] private float attackSpeed;
         [SerializeField] private Animator animator;
         [SerializeField] protected Transform weaponPosition;
-      
+        [SerializeField] [CanBeNull] protected GameObject weaponObject;
         protected PlayerAttackStateMachine StateMachine;
 
         public void Initialize(PlayerAttackStateMachine stateMachine)
         {
             StateMachine = stateMachine;
+        }
+        
+        protected void EquipWeapon(GameObject newWeapon)
+        {
+            if (newWeapon == null || weaponObject == null) return;
+            weaponObject = newWeapon;
+            weaponObject.transform.SetParent(weaponPosition);
+            weaponObject.transform.localPosition = Vector3.zero;
+            weaponObject.transform.localRotation = Quaternion.identity;
         }
         
         public string WeaponName { get; set; }
