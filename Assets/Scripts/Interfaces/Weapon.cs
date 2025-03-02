@@ -14,23 +14,41 @@ namespace Interfaces
         [SerializeField] private float attackSpeed;
         [SerializeField] private Animator animator;
         [SerializeField] protected Transform weaponPosition;
-        [SerializeField] [CanBeNull] protected GameObject weaponObject;
+        [SerializeField] [CanBeNull] protected GameObject weaponObject = null;
+        [SerializeField] [CanBeNull] protected Transform weaponSpawner = null;
         protected PlayerAttackStateMachine StateMachine;
-
         public void Initialize(PlayerAttackStateMachine stateMachine)
         {
             StateMachine = stateMachine;
         }
         
-        protected void EquipWeapon(GameObject newWeapon)
+        public virtual void EquipWeapon()
+        {
+   
+        }
+
+        protected void EquipWeapon(GameObject newWeapon, Vector3 localPosition, Vector3 localRotation)
         {
             if (newWeapon == null || weaponObject == null) return;
+            weaponObject.SetActive(true);
             weaponObject = newWeapon;
             weaponObject.transform.SetParent(weaponPosition);
-            weaponObject.transform.localPosition = Vector3.zero;
-            weaponObject.transform.localRotation = Quaternion.identity;
+            weaponObject.transform.localPosition = localPosition;
+            weaponObject.transform.localRotation = Quaternion.Euler(localRotation);
         }
-        
+
+        public void UnEquipWeapon()
+        {
+            if (weaponObject == null) return;
+            if (weaponSpawner == null) return;
+            weaponObject.transform.SetParent(weaponSpawner);
+
+            weaponObject.transform.position = weaponSpawner.position;
+            weaponObject.transform.rotation = weaponSpawner.rotation;
+
+            weaponObject.SetActive(false);
+        }
+
         public string WeaponName { get; set; }
         protected Animator Animator => animator;
         protected Collider WeaponCollider => weaponCollider;

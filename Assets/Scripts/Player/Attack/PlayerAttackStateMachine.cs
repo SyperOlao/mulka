@@ -22,6 +22,7 @@ namespace Player.Attack
         private InputAction _switchWeapon;
         public Weapon Weapon => _weapon;
         private int _currentWeaponIndex;
+
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -29,26 +30,25 @@ namespace Player.Attack
             _switchWeapon = _playerInput.actions[ControlEnum.DrawWeapon];
             _attackAction.performed += OnAttack;
             _switchWeapon.performed += OnSwitch;
-            _weapon = availableWeapons[1];
+            _weapon = availableWeapons[0];
             InitializeWeaponState();
-
         }
 
         private void OnSwitch(InputAction.CallbackContext context)
         {
             _currentWeaponIndex++;
+            _weapon.UnEquipWeapon();
             _weapon = availableWeapons[_currentWeaponIndex % availableWeapons.Length];
+            _weapon.EquipWeapon();
             InitializeWeaponState();
-
         }
 
         private IEnumerator WaitForAttackAnimation()
         {
             yield return new WaitForSeconds(_weapon.AttackSpeed);
             _weapon.EndAttack();
-       
         }
-        
+
 
         private void OnAttack(InputAction.CallbackContext context)
         {
