@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using JetBrains.Annotations;
 using Player.Attack;
 using UnityEngine;
@@ -49,6 +50,16 @@ namespace Interfaces
             weaponObject.transform.rotation = weaponSpawner.rotation;
 
             weaponObject.SetActive(false);
+        }
+
+        public virtual void SwitchAnimationToEnd()
+        {
+            
+        }
+        
+        public virtual void SwitchAnimationToStart()
+        {
+            
         }
 
         public string WeaponName { get; set; }

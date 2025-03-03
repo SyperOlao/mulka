@@ -46,8 +46,10 @@ namespace Player.Attack
         {
             _currentWeaponIndex++;
             _weapon.UnEquipWeapon();
+            _weapon.SwitchAnimationToEnd();
             _weapon = availableWeapons[_currentWeaponIndex % availableWeapons.Length];
             _weapon.EquipWeapon();
+            _weapon.SwitchAnimationToStart();
             InitializeWeaponState();
         }
 
@@ -61,6 +63,7 @@ namespace Player.Attack
         {
             yield return new WaitForSeconds(_isAttackStateTime);
             _playerCondition.IsAttack = false;
+            _weapon.SwitchAnimationToEnd();
         }
 
 
