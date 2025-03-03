@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Player.Attack;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,7 @@ namespace Interfaces
         [SerializeField] [CanBeNull] protected GameObject weaponObject = null;
         [SerializeField] [CanBeNull] protected Transform weaponSpawner = null;
         protected PlayerAttackStateMachine StateMachine;
+        public event Action InterruptAttack;
         public void Initialize(PlayerAttackStateMachine stateMachine)
         {
             StateMachine = stateMachine;
@@ -58,6 +60,11 @@ namespace Interfaces
         public Sprite Icon => icon;
 
         public float AttackSpeed => attackSpeed;
+
+        protected void Interrupt()
+        {
+            InterruptAttack?.Invoke();
+        }
 
         public abstract void OnAttack(InputAction.CallbackContext context);
         public abstract void EndAttack();

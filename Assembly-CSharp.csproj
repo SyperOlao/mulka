@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerBaseAttackState.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\RandomPositionHelper.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerCondition.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Common\Camera\Billboard.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\Character\DialogCharacterDto.cs" />

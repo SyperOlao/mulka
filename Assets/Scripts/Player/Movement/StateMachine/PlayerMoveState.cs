@@ -8,6 +8,7 @@ namespace Player.Movement.StateMachine
     {
         private readonly int _moveSpeedHash = Animator.StringToHash(PlayerAnimatorEnum.MoveSpeed);
         private readonly int _moveBlendTreeHash = Animator.StringToHash(PlayerAnimatorEnum.MoveBlendTree);
+        private readonly int _boxingBlendTreeHash = Animator.StringToHash(PlayerAnimatorEnum.BoxingTree);
         private const float AnimationDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
    
@@ -20,8 +21,10 @@ namespace Player.Movement.StateMachine
         public override void Enter()
         {
             MoveStateMachine.Velocity.y = Physics.gravity.y;
+           
+            var tree = MoveStateMachine.PlayerCondition.IsAttack ? _boxingBlendTreeHash : _moveBlendTreeHash;
 
-            MoveStateMachine.Animator.CrossFadeInFixedTime(_moveBlendTreeHash, CrossFadeDuration);
+            MoveStateMachine.Animator.CrossFadeInFixedTime(tree, CrossFadeDuration);
         }
 
         public override void Tick()

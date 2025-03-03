@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Common.Enums;
 using Common.Utils;
+using Enemy.Movement.StateMachine;
 using Interfaces;
 using Player.Movement.StateMachine;
 using UnityEngine;

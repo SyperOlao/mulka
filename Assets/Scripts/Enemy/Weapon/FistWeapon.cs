@@ -10,7 +10,7 @@ namespace Enemy.Weapon
     {
         [SerializeField] private Collider rightFist;
         
-        private readonly int _attackHash = Animator.StringToHash(PlayerAnimatorEnum.IsAttack);
+        private readonly int _attackHash = Animator.StringToHash(PlayerAnimatorEnum.Attack);
         private int _attackCombo;
         
         public override void OnAttack(InputAction.CallbackContext context)
@@ -24,7 +24,7 @@ namespace Enemy.Weapon
             }
             else
             {
-                Animator.SetInteger(_attackHash, 3);
+                Animator.SetInteger(_attackHash, 2);
                 StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine, rightFist));
                 _attackCombo = 0;
             }
@@ -35,7 +35,7 @@ namespace Enemy.Weapon
         public override void EndAttack()
         {
             StateMachine.SwitchState(new PlayerIdleAttackState(StateMachine));
-            Animator.SetInteger(_attackHash, 4);
+            Animator.SetInteger(_attackHash, 0);
         }
     }
 }

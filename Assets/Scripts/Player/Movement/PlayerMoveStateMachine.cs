@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Player.Movement
 {
+    [RequireComponent(typeof(PlayerCondition))]
     [RequireComponent(typeof(InputReader))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(CharacterController))]
@@ -24,11 +25,12 @@ namespace Player.Movement
         private PlayerInput _playerInput;
         public InputAction RunAction { get; private set; }
         public InputAction JumpAction { get; private set; }
-      
+        public PlayerCondition PlayerCondition { get; private set; }
      
 
         private void Awake()
         {
+            PlayerCondition = GetComponent<PlayerCondition>();
             _playerInput = GetComponent<PlayerInput>();
             RunAction = _playerInput.actions[ControlEnum.RunQuick];
             JumpAction = _playerInput.actions[ControlEnum.Jump];

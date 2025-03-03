@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 
 namespace Player.Attack
 {
+    [RequireComponent(typeof(PlayerCondition))]
     [RequireComponent(typeof(Animator))]
     public class PlayerAttackStateMachine : Common.StateMachine.StateMachine
     {
@@ -22,17 +23,24 @@ namespace Player.Attack
         private InputAction _switchWeapon;
         public Weapon Weapon => _weapon;
         private int _currentWeaponIndex;
-
+        private Coroutine _attackCoroutine;
+        private Coroutine _isAttackStateCoroutine;
+        private PlayerCondition _playerCondition;
+        private readonly int _isAttackStateTime = 10; 
+        
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
+            _playerCondition = GetComponent<PlayerCondition>();
             _attackAction = _playerInput.actions[ControlEnum.Attack1];
             _switchWeapon = _playerInput.actions[ControlEnum.DrawWeapon];
             _attackAction.performed += OnAttack;
             _switchWeapon.performed += OnSwitch;
             _weapon = availableWeapons[0];
+            _weapon.EquipWeapon();
             InitializeWeaponState();
         }
+        
 
         private void OnSwitch(InputAction.CallbackContext context)
         {
@@ -48,12 +56,35 @@ namespace Player.Attack
             yield return new WaitForSeconds(_weapon.AttackSpeed);
             _weapon.EndAttack();
         }
+        
+        private IEnumerator WaitForIsAttackStateTime()
+        {
+            yield return new WaitForSeconds(_isAttackStateTime);
+            _playerCondition.IsAttack = false;
+        }
 
 
         private void OnAttack(InputAction.CallbackContext context)
         {
+            _playerCondition.IsAttack = true;
+            StopIsAttackState();
+            _isAttackStateCoroutine = StartCoroutine(WaitForIsAttackStateTime());
             _weapon.OnAttack(context);
-            StartCoroutine(WaitForAttackAnimation());
+            _attackCoroutine = StartCoroutine(WaitForAttackAnimation());
+        }
+        
+        private void StopIsAttackState()
+        {
+            if (_isAttackStateCoroutine == null) return;
+            StopCoroutine(_isAttackStateCoroutine);
+            _isAttackStateCoroutine = null;
+        }
+        
+        private void StopAttack()
+        {
+            if (_attackCoroutine == null) return;
+            StopCoroutine(_attackCoroutine);
+            _attackCoroutine = null;
         }
 
         private void InitializeWeaponState()
