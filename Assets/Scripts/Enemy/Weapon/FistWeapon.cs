@@ -21,12 +21,12 @@ namespace Enemy.Weapon
             if (_attackCombo <= 2)
             {
                 Animator.SetInteger(_attackHash, 2);
-                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine, WeaponCollider));
+                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine,new [] { WeaponCollider }));
             }
             else
             {
                 Animator.SetInteger(_attackHash, 3);
-                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine, rightFist));
+                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine, new [] { WeaponCollider, rightFist }));
                 _attackCombo = 0;
             }
         }

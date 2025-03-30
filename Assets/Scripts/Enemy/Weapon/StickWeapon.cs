@@ -20,7 +20,7 @@ namespace Enemy.Weapon
             Animator.SetInteger(_attackHash, 2);
             if (StateMachine != null)
             {
-                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine, WeaponCollider));
+                StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine,new [] { WeaponCollider }));
             }
         }
 

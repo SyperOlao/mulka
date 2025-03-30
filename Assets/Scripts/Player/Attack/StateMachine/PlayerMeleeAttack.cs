@@ -13,10 +13,10 @@ namespace Player.Attack.StateMachine
     {
         private readonly HashSet<IDamageable> _enemiesInRange = new();
         private readonly Collider[] _hitColliders = new Collider[10];
-        private readonly Collider _playerWeaponCollider;
-        public PlayerMeleeAttack(PlayerAttackStateMachine state, Collider collider) : base(state)
+        private readonly Collider[] _playerWeaponColliders;
+        public PlayerMeleeAttack(PlayerAttackStateMachine state, Collider[] collider) : base(state)
         {
-            _playerWeaponCollider = collider;
+            _playerWeaponColliders = collider;
         }
 
 
@@ -26,15 +26,19 @@ namespace Player.Attack.StateMachine
 
         public override void Tick()
         {
-            CheckForDamageableInBox();
+            foreach (var playerWeaponCollider in _playerWeaponColliders)
+            {
+                CheckForDamageableInBox(playerWeaponCollider);      
+            }
+          
         }
 
 
-        private void CheckForDamageableInBox()
+        private void CheckForDamageableInBox(Collider playerWeaponCollider)
         {
           
-            var boxCenter = _playerWeaponCollider.transform.position;
-            var boxSize = _playerWeaponCollider.bounds.size;
+            var boxCenter = playerWeaponCollider.transform.position;
+            var boxSize = playerWeaponCollider.bounds.size;
 
             var colliderCount = Physics.OverlapBoxNonAlloc(boxCenter, boxSize / 2, _hitColliders, Quaternion.identity);
 
