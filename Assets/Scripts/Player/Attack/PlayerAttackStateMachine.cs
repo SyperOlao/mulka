@@ -31,17 +31,17 @@ namespace Player.Attack
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
+       
+            _attackAction = _playerInput.actions.FindAction("Attack1");
             _playerCondition = GetComponent<PlayerCondition>();
             _attackAction = _playerInput.actions[ControlEnum.Attack1];
             _switchWeapon = _playerInput.actions[ControlEnum.DrawWeapon];
-            _attackAction.performed += OnAttack;
+            _attackAction.started += OnAttack2;
             _switchWeapon.performed += OnSwitch;
             _weapon = availableWeapons[0];
             _weapon.EquipWeapon();
             InitializeWeaponState();
         }
-        
-
         private void OnSwitch(InputAction.CallbackContext context)
         {
             _currentWeaponIndex++;
@@ -67,7 +67,7 @@ namespace Player.Attack
         }
 
 
-        private void OnAttack(InputAction.CallbackContext context)
+        private void OnAttack2(InputAction.CallbackContext context)
         {
             _playerCondition.IsAttack = true;
             StopIsAttackState();
@@ -100,7 +100,7 @@ namespace Player.Attack
 
         private void OnDestroy()
         {
-            _attackAction.performed -= OnAttack;
+            _attackAction.performed -= OnAttack2;
             _switchWeapon.performed -= OnSwitch;
         }
     }

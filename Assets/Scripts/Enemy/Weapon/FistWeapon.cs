@@ -15,6 +15,7 @@ namespace Enemy.Weapon
         
         public override void OnAttack(InputAction.CallbackContext context)
         {
+            
             if (StateMachine == null) return;
             _attackCombo++;
             if (_attackCombo <= 2)
