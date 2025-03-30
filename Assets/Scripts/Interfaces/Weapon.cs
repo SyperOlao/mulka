@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Common.Enums;
 using JetBrains.Annotations;
 using Player.Attack;
 using UnityEngine;
@@ -20,14 +21,28 @@ namespace Interfaces
         [SerializeField] [CanBeNull] protected Transform weaponSpawner = null;
         protected PlayerAttackStateMachine StateMachine;
         public event Action InterruptAttack;
+        private AnimatorStateInfo _stateInfo;
+
+        public float GetCurrentAnimationSpeed()
+        {
+            _stateInfo = Animator.GetCurrentAnimatorStateInfo(1);
+            var clipLength = _stateInfo.length;
+            var animatorSpeed = Animator.speed;
+            var stateSpeed = _stateInfo.speed;
+            var speedMultiplier = Animator.GetFloat(PlayerAnimatorEnum.Speed);
+            var realSpeed = animatorSpeed * stateSpeed * speedMultiplier;
+            var actualClipLength = clipLength / realSpeed;
+            
+            return actualClipLength;
+        }
+
         public void Initialize(PlayerAttackStateMachine stateMachine)
         {
             StateMachine = stateMachine;
         }
-        
+
         public virtual void EquipWeapon()
         {
-   
         }
 
         protected void EquipWeapon(GameObject newWeapon, Vector3 localPosition, Vector3 localRotation)
@@ -54,12 +69,10 @@ namespace Interfaces
 
         public virtual void SwitchAnimationToEnd()
         {
-            
         }
-        
+
         public virtual void SwitchAnimationToStart()
         {
-            
         }
 
         public string WeaponName { get; set; }

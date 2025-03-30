@@ -26,8 +26,8 @@ namespace Player.Attack
         private Coroutine _attackCoroutine;
         private Coroutine _isAttackStateCoroutine;
         private PlayerCondition _playerCondition;
-        private readonly int _isAttackStateTime = 10; 
-        
+        private readonly int _isAttackStateTime = 10;
+        private bool _isCurrentAttack;
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -44,6 +44,7 @@ namespace Player.Attack
         }
         private void OnSwitch(InputAction.CallbackContext context)
         {
+            _playerCondition.IsAttack = false;
             _currentWeaponIndex++;
             _weapon.UnEquipWeapon();
             _weapon.SwitchAnimationToEnd();
@@ -55,7 +56,8 @@ namespace Player.Attack
 
         private IEnumerator WaitForAttackAnimation()
         {
-            yield return new WaitForSeconds(_weapon.AttackSpeed);
+            yield return new WaitForSeconds(_weapon.GetCurrentAnimationSpeed());
+            _isCurrentAttack = false;
             _weapon.EndAttack();
         }
         
@@ -69,6 +71,9 @@ namespace Player.Attack
 
         private void OnAttack2(InputAction.CallbackContext context)
         {
+            Debug.Log("ATTACK" + _isCurrentAttack);
+            if(_isCurrentAttack) return;
+            _isCurrentAttack = true;
             _playerCondition.IsAttack = true;
             StopIsAttackState();
             _isAttackStateCoroutine = StartCoroutine(WaitForIsAttackStateTime());

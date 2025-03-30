@@ -16,6 +16,7 @@ namespace Enemy.Weapon
        
         public override void OnAttack(InputAction.CallbackContext context)
         {
+            Animator.SetFloat(PlayerAnimatorEnum.Speed, AttackSpeed);
             Animator.SetInteger(_attackHash, 2);
             if (StateMachine != null)
             {

@@ -9,5 +9,6 @@
         public const string AttackFist = "AttackFist";
         public const string AttackStick = "AttackStick";
         public const string IsAttack = "IsAttack";
+        public const string Speed = "Speed";
     }
 }
