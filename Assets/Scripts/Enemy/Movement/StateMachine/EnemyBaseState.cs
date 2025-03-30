@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
 using State = Common.StateMachine.State;
@@ -9,39 +10,37 @@ namespace Enemy.Movement.StateMachine
     {
         protected readonly EnemyStateMachine StateMachine;
 
+        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
+        private const float AnimationDampTime = 0.1f;
+        
         protected EnemyBaseState(EnemyStateMachine stateMachine)
         {
             StateMachine = stateMachine;
         }
 
-
-        protected void Move(Vector3 startPosition, Vector3 endPosition, float step)
+        private void LookAt(Vector3 position)
         {
-            StateMachine.transform.position = Vector3.MoveTowards(startPosition, endPosition, step);
+            var direction = position - StateMachine.transform.position;
+            direction.y = 0;
+
+            StateMachine.transform.rotation = Quaternion.LookRotation(direction);
         }
 
-        protected void FaceToDirection(Vector3 targetPosition, Vector3 followerPosition)
+        protected void Move(Vector3 endPosition)
         {
-            if (targetPosition == Vector3.zero) return;
-            var directionToTarget = (targetPosition - followerPosition).normalized;
-            StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
-            
+            StateMachine.NavMeshAgent.SetDestination(endPosition);
+            LookAt(endPosition);
+            AnimateWalk();
         }
-        
 
-        protected void ChangeCurrentPoint()
+        private void AnimateWalk()
         {
-            var currentPoint = StateMachine.CurrentPoint;
-            var length = StateMachine.Points.Count;
+            StateMachine.Animator.SetFloat(_moveSpeedHash, 1f, AnimationDampTime, Time.deltaTime);
+        }
 
-            if (currentPoint >= length - 1)
-            {
-                StateMachine.CurrentPoint = 0;
-            }
-            else
-            {
-                StateMachine.CurrentPoint++;
-            }
+        protected Vector3 GetRoamingPosition()
+        {
+            return RandomPositionHelper.GetRandomPosition(StateMachine.RadiusStartFiled, StateMachine.StartPosition);
         }
     }
 }

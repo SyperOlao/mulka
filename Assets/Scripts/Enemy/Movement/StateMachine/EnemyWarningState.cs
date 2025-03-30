@@ -11,11 +11,11 @@ namespace Enemy.Movement.StateMachine
         
         public EnemyWarningState(EnemyStateMachine stateMachine) : base(stateMachine)
         {
+            
         }
 
         public override void Enter()
         {
-
         }
 
         public override void Tick()
@@ -26,13 +26,10 @@ namespace Enemy.Movement.StateMachine
 
         private void MoveToPlayer()
         {
-            var step = StateMachine.MovementSpeed * Time.deltaTime * 0.5f;
-            var position = StateMachine.transform.position;
-            var lastPlayerPosition = StateMachine.FieldOfView.LastPlayerPosition;
-            Move(position, lastPlayerPosition,
-                step);
-            FaceToDirection( lastPlayerPosition, position);
+            var lastPlayerPosition = StateMachine.FieldOfView.playerRef.transform.position;
+            Move(lastPlayerPosition);
         }
+        
 
         private void SwitchStateByTime()
         {
@@ -41,19 +38,19 @@ namespace Enemy.Movement.StateMachine
                 _timerToForget -= Time.deltaTime;
                 if (_timerToForget <= 0)
                 {
-                    StateMachine.SwitchState(new EnemyMoveState(StateMachine));
+                    StateMachine.SwitchState(new EnemyIdleState(StateMachine, 3f));
                 }
                 _timer = TimeToSwitchState;
             }
-            else
-            {
-                _timer -= Time.deltaTime;
-                if (_timer <= 0)
-                {
-                    StateMachine.SwitchState(new EnemyAttackState(StateMachine));
-                }
-                _timerToForget = TimeToSwitchState;
-            }
+            // else
+            // {
+            //     _timer -= Time.deltaTime;
+            //     if (_timer <= 0)
+            //     {
+            //         StateMachine.SwitchState(new EnemyAttackState(StateMachine));
+            //     }
+            //     _timerToForget = TimeToSwitchState;
+            // }
         }
 
         public override void Exit()

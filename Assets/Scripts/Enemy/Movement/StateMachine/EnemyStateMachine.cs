@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataClasses;
 using Enemy.FOV;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.Movement.StateMachine
 {
@@ -12,51 +13,39 @@ namespace Enemy.Movement.StateMachine
     {
         public Vector3 Velocity;
 
-        public float PointRadius { get; set; } = 0.01f;
-
-        public float LookRotationDampFactor { get; private set; } = 10f;
+        public float PointRadius => 0.1f;
 
         public float MovementSpeed { get; private set; } = 5f;
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-        [SerializeField] private FieldOfView _fieldOfView;
-        [SerializeField] private List<PointsWithTimeStandby> _points;
-        [SerializeField] private int _currentPoint;
+        [SerializeField] private FieldOfView fieldOfView;
+        [SerializeField] private Vector3 startPosition;
+        [SerializeField] private int radiusStartFiled;
+        public Vector3 StartPosition => startPosition;
+        public int RadiusStartFiled => radiusStartFiled; 
+        public FieldOfView FieldOfView => fieldOfView;
+        public NavMeshAgent NavMeshAgent { get; private set; }
         
-        public List<PointsWithTimeStandby> Points => _points;
-        public FieldOfView FieldOfView => _fieldOfView;
-        public int CurrentPoint
-        {
-            get => _currentPoint;
-            set => _currentPoint = value;
-        }
+        public CapsuleCollider CapsuleCollider { get; private set; }
+        
 
-        private void OnEnable()
+        private void Awake()
         {
-            FieldOfView.IsPlayerVisible += SwitchToWarning;
-        }
-
-        private void OnDisable()
-        {
-            FieldOfView.IsPlayerVisible -= SwitchToWarning;
-        }
-
-
-        private void SwitchToWarning()
-        {
-            if (FieldOfView.CanSeePlayer && CurrentState is not (EnemyAttackState or EnemyWarningState))
-            {
-                SwitchState(new EnemyWarningState(this));        
-            }
+            Animator = GetComponent<Animator>();
+            Rigidbody = GetComponent<Rigidbody>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            CapsuleCollider = GetComponent<CapsuleCollider>();
         }
 
         private void Start()
         {
-            Animator = GetComponent<Animator>();
-            Rigidbody = GetComponent<Rigidbody>();
-
             SwitchState(new EnemyMoveState(this));
+        }
+
+        public void Death()
+        {
+            SwitchState(new EnemyDyingState(this));
         }
     }
 }

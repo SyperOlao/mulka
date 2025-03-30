@@ -1,9 +1,9 @@
 ﻿using System;
+using Common.Enums;
 using Enemy.FOV;
 using Enemy.Health.FaceCamera;
 using Enemy.Movement.StateMachine;
 using Interfaces;
-using Spawner;
 using UI.Battle;
 using UnityEngine;
 
@@ -11,26 +11,38 @@ namespace Enemy
 {
     [RequireComponent(typeof(FieldOfView))]
     [RequireComponent(typeof(EnemyStateMachine))]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Health.Health))]
     public class Enemy: MonoBehaviour, IDamageable
     {
-        [SerializeField] private Health.Health health;
-
-        public Health.Health Health => health;
-        private EnemySpawner _enemySpawner;
-
+        private Health.Health _health;
+        private Animator _animator;
+        private EnemyStateMachine _stateMachine;
+        private readonly int _injureHash = Animator.StringToHash(EnemyAnimatorEnum.Injure);
+   
         private void Awake()
         {
-            _enemySpawner = FindObjectOfType<EnemySpawner>();
+            _animator = GetComponent<Animator>();
+            _health = GetComponent<Health.Health>();
+            _stateMachine = GetComponent<EnemyStateMachine>();
         }
 
-        public void OnTakeDamage(float damage)
+        public void OnTakeDamage(int damage)
         {
-            health.TakeDamage(damage);
-
-            if (health.CurrentHealth <= 0)
+            _health.OnTakeDamage(damage);
+            if (_health.CurrentHealth <= 0)
             {
-                _enemySpawner.ActionOnRelease(gameObject);
+                _stateMachine.Death();
             }
+            else
+            {
+                _animator.SetBool(_injureHash, true);
+            }
+        }
+
+        public void EndDamage()
+        {
+            _animator.SetBool(_injureHash, false);
         }
         
     }

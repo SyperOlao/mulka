@@ -5,23 +5,23 @@ namespace Player.Movement.StateMachine
 {
     public abstract class PlayerBaseState: State
     {
-        protected readonly PlayerStateMachine StateMachine;
+        protected readonly PlayerMoveStateMachine MoveStateMachine;
         
-        protected PlayerBaseState(PlayerStateMachine stateMachine)
+        protected PlayerBaseState(PlayerMoveStateMachine moveStateMachine)
         {
-            StateMachine = stateMachine;
+            MoveStateMachine = moveStateMachine;
         }
 
         protected void CalculateMoveDirection()
         {
-            var mainCameraTransform = StateMachine.MainCamera;
-            Vector3 cameraForward = new(StateMachine.MainCamera.forward.x, 0, mainCameraTransform.forward.z);
-            Vector3 cameraRight = new(StateMachine.MainCamera.right.x, 0, mainCameraTransform.right.z);
+            var mainCameraTransform = MoveStateMachine.MainCamera;
+            Vector3 cameraForward = new(MoveStateMachine.MainCamera.forward.x, 0, mainCameraTransform.forward.z);
+            Vector3 cameraRight = new(MoveStateMachine.MainCamera.right.x, 0, mainCameraTransform.right.z);
 
-            var moveDirection = cameraForward.normalized * StateMachine.InputReader.MoveComposite.y + cameraRight.normalized * StateMachine.InputReader.MoveComposite.x;
+            var moveDirection = cameraForward.normalized * MoveStateMachine.InputReader.MoveComposite.y + cameraRight.normalized * MoveStateMachine.InputReader.MoveComposite.x;
 
-            StateMachine.Velocity.x = moveDirection.x * StateMachine.MovementSpeed;
-            StateMachine.Velocity.z = moveDirection.z * StateMachine.MovementSpeed;
+            MoveStateMachine.Velocity.x = moveDirection.x * MoveStateMachine.MovementSpeed;
+            MoveStateMachine.Velocity.z = moveDirection.z * MoveStateMachine.MovementSpeed;
         }
         
       
@@ -29,24 +29,24 @@ namespace Player.Movement.StateMachine
         protected bool CheckCollisionOverlap(Vector3 point)
         {
          
-            return StateMachine.Controller.isGrounded;
+            return MoveStateMachine.Controller.isGrounded;
         }
         
         
         protected void FaceMoveDirection()
         {
-            Vector3 faceDirection = new(StateMachine.Velocity.x, 0f, StateMachine.Velocity.z);
+            Vector3 faceDirection = new(MoveStateMachine.Velocity.x, 0f, MoveStateMachine.Velocity.z);
 
             if (faceDirection == Vector3.zero)
                 return;
 
-            StateMachine.transform.rotation = Quaternion.Slerp(StateMachine.transform.rotation, Quaternion.LookRotation(faceDirection), StateMachine.LookRotationDampFactor * Time.deltaTime);
+            MoveStateMachine.transform.rotation = Quaternion.Slerp(MoveStateMachine.transform.rotation, Quaternion.LookRotation(faceDirection), MoveStateMachine.LookRotationDampFactor * Time.deltaTime);
         }
         
         protected void Move(int acceleration = 1)
         {
-            var deltaAcceleration = StateMachine.Velocity * acceleration;
-            StateMachine.Controller.Move(deltaAcceleration * Time.deltaTime);
+            var deltaAcceleration = MoveStateMachine.Velocity * acceleration;
+            MoveStateMachine.Controller.Move(deltaAcceleration * Time.deltaTime);
         }
     }
 }

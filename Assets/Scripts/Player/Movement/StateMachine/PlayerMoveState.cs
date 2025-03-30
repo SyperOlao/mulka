@@ -1,26 +1,30 @@
-﻿using Unity.VisualScripting;
+﻿using Common.Enums;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player.Movement.StateMachine
 {
     public class PlayerMoveState : PlayerBaseState
     {
-        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
-        private readonly int _moveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
+        private readonly int _moveSpeedHash = Animator.StringToHash(PlayerAnimatorEnum.MoveSpeed);
+        private readonly int _moveBlendTreeHash = Animator.StringToHash(PlayerAnimatorEnum.MoveBlendTree);
+        private readonly int _boxingBlendTreeHash = Animator.StringToHash(PlayerAnimatorEnum.BoxingTree);
         private const float AnimationDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
    
 
 
-        public PlayerMoveState(PlayerStateMachine stateMachine) : base(stateMachine)
+        public PlayerMoveState(PlayerMoveStateMachine moveStateMachine) : base(moveStateMachine)
         {
         }
 
         public override void Enter()
         {
-            StateMachine.Velocity.y = Physics.gravity.y;
+            MoveStateMachine.Velocity.y = Physics.gravity.y;
+           
+            var tree = MoveStateMachine.PlayerCondition.IsAttack ? _boxingBlendTreeHash : _moveBlendTreeHash;
 
-            StateMachine.Animator.CrossFadeInFixedTime(_moveBlendTreeHash, CrossFadeDuration);
+            MoveStateMachine.Animator.CrossFadeInFixedTime(tree, CrossFadeDuration);
         }
 
         public override void Tick()
@@ -28,15 +32,15 @@ namespace Player.Movement.StateMachine
             CalculateMoveDirection();
             FaceMoveDirection();
             MovementSpeedCalculation(0.9f);
-            if (StateMachine.JumpAction.IsPressed())
+            if (MoveStateMachine.JumpAction.IsPressed())
             {
-                StateMachine.SwitchState(new PlayerJumpState(StateMachine));
+                MoveStateMachine.SwitchState(new PlayerJumpState(MoveStateMachine));
                 return;
             }
 
-            if (StateMachine.RunAction.IsPressed())
+            if (MoveStateMachine.RunAction.IsPressed())
             {
-                StateMachine.SwitchState(new PlayerRunState(StateMachine));
+                MoveStateMachine.SwitchState(new PlayerRunState(MoveStateMachine));
                 return;
             }
 
@@ -46,8 +50,8 @@ namespace Player.Movement.StateMachine
 
         protected void MovementSpeedCalculation(float animationSpeed, int acceleration = 1)
         {
-            StateMachine.Animator.SetFloat(_moveSpeedHash,
-                StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? animationSpeed : 0f, AnimationDampTime,
+            MoveStateMachine.Animator.SetFloat(_moveSpeedHash,
+                MoveStateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? animationSpeed : 0f, AnimationDampTime,
                 Time.deltaTime);
             Move(acceleration);
         }
