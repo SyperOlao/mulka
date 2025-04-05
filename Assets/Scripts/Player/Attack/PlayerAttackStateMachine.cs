@@ -16,23 +16,22 @@ namespace Player.Attack
     [RequireComponent(typeof(Animator))]
     public class PlayerAttackStateMachine : Common.StateMachine.StateMachine
     {
-        [SerializeField] private Weapon[] availableWeapons;
-        private Weapon _weapon;
+        [SerializeField] private Interfaces.Weapon[] availableWeapons;
+        [SerializeField] private int isAttackStateTime = 10;
+        private Interfaces.Weapon _weapon;
         private PlayerInput _playerInput;
         private InputAction _attackAction;
         private InputAction _switchWeapon;
-        public Weapon Weapon => _weapon;
+        public Interfaces.Weapon Weapon => _weapon;
         private int _currentWeaponIndex;
         private Coroutine _attackCoroutine;
         private Coroutine _isAttackStateCoroutine;
         private PlayerCondition _playerCondition;
-        private readonly int _isAttackStateTime = 10;
+      
         private bool _isCurrentAttack;
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-       
-            _attackAction = _playerInput.actions.FindAction("Attack1");
             _playerCondition = GetComponent<PlayerCondition>();
             _attackAction = _playerInput.actions[ControlEnum.Attack1];
             _switchWeapon = _playerInput.actions[ControlEnum.DrawWeapon];
@@ -63,7 +62,7 @@ namespace Player.Attack
         
         private IEnumerator WaitForIsAttackStateTime()
         {
-            yield return new WaitForSeconds(_isAttackStateTime);
+            yield return new WaitForSeconds(isAttackStateTime);
             _playerCondition.IsAttack = false;
             _weapon.SwitchAnimationToEnd();
         }
@@ -71,7 +70,6 @@ namespace Player.Attack
 
         private void OnAttack2(InputAction.CallbackContext context)
         {
-            Debug.Log("ATTACK" + _isCurrentAttack);
             if(_isCurrentAttack) return;
             _isCurrentAttack = true;
             _playerCondition.IsAttack = true;

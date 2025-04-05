@@ -14,7 +14,7 @@ namespace Dialogs.Logic
         
         private List<DialogDataDto> _dialogue;
         private DialogueManager _dialogueManager;
-
+        
         public void Awake()
         {
             _dialogueManager = FindObjectOfType<DialogueManager>();

@@ -1,11 +1,9 @@
-﻿using System;
-using Common.Enums;
+﻿using Common.Enums;
 using Player.Attack.StateMachine;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-
-namespace Enemy.Weapon
+namespace Player.Weapon
 {
     public class StickWeapon : Interfaces.Weapon
     {

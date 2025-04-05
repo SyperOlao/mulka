@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Common.Utils;
 using Dialogs.Data.Character;
 using Dialogs.Data.DialogData;
 using JetBrains.Annotations;
+using Player.Attack;
+using Player.Movement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,8 +26,9 @@ namespace UI.Dialog
         [ItemCanBeNull] private Queue<string> _sentences;
         private LoadedCharacterService _dialogCharacterList;
         private bool _isDialogueActive;
+        
 
-        public void Start() 
+        public void Start()
         {
             _dialogCharacterList = new LoadedCharacterService();
             _currentDialogue = new Queue<DialogDataDto>();
@@ -56,7 +60,7 @@ namespace UI.Dialog
         {
             var character = _dialogCharacterList.GetCharacterByName(dialogDataDto.subject);
             nameText.text = character.Name;
-            nameText.color =  ColorHelper.HexToColor(character.NameColor);
+            nameText.color = ColorHelper.HexToColor(character.NameColor);
             dialogueText.color = ColorHelper.HexToColor(character.TextColor);
             image.sprite = Resources.Load<Sprite>(character.PngPath);
             _sentences.Clear();
@@ -64,7 +68,6 @@ namespace UI.Dialog
             {
                 _sentences.Enqueue(sentence);
             }
-
         }
 
         public void DisplayNextSentence()
@@ -104,7 +107,6 @@ namespace UI.Dialog
             animator.SetBool(_isOpenHash, false);
             container.SetActive(false);
             _isDialogueActive = false;
-           
         }
     }
 }

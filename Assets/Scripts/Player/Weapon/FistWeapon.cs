@@ -1,10 +1,9 @@
 ﻿using Common.Enums;
-using Interfaces;
 using Player.Attack.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Enemy.Weapon
+namespace Player.Weapon
 {
     public class FistWeapon : Interfaces.Weapon
     {

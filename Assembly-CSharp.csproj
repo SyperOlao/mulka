@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon\FistWeapon.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerRunState.cs" />
      <Compile Include="Assets\Scripts\Interaction\CharacterInteraction.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Weapon.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\ColorHelper.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon\StickWeapon.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\PlayerAttackStateMachine.cs" />
@@ -83,12 +85,10 @@
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMoveStateMachine.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Weapon\StickWeapon.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\UI\Interact\UIInteract.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Logic\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Weapon\FistWeapon.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\DebugHelper.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
@@ -363,7 +363,7 @@
      <None Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\package.json" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
-     <Folder Include="Assets\Scripts\Enemy\Weapon" />
+     <Folder Include="Assets\Scripts\Player\Weapon" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
