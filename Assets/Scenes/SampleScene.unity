@@ -692,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3629078126356033835, guid: bf3ff059373c94f49bc38133055d6b5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.549
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 3629078126356033835, guid: bf3ff059373c94f49bc38133055d6b5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1972,7 +1972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907960681}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2477a5048f4637b7063b0e74e782a9, type: 3}
   m_Name: 
@@ -1992,17 +1992,17 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.7478729
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_AngularSpeed: 300
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 7.795649
   m_BaseOffset: 0
   m_WalkableMask: 5
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &907960695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,7 +3135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385775682}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2001371, y: -0.00195951, z: 0.00040026967, w: 0.9797659}
+  m_LocalRotation: {x: 0.2001371, y: -0.0019595267, z: 0.00040027316, w: 0.9797659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
