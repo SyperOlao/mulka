@@ -16,12 +16,19 @@ namespace Interfaces
         [SerializeField] private Sprite icon;
         [SerializeField] private float attackSpeed;
         [SerializeField] private Animator animator;
-        [SerializeField] protected Transform weaponPosition;
         [SerializeField] [CanBeNull] protected GameObject weaponObject = null;
-        [SerializeField] [CanBeNull] protected Transform weaponSpawner = null;
         protected PlayerAttackStateMachine StateMachine;
-        public event Action InterruptAttack;
         private AnimatorStateInfo _stateInfo;
+
+        public string WeaponName { get; set; }
+        protected Animator Animator => animator;
+        protected Collider WeaponCollider => weaponCollider;
+
+        public int Damage => damage;
+
+        public Sprite Icon => icon;
+
+        protected float AttackSpeed => attackSpeed;
 
         public float GetCurrentAnimationSpeed()
         {
@@ -32,7 +39,7 @@ namespace Interfaces
             var speedMultiplier = Animator.GetFloat(PlayerAnimatorEnum.Speed);
             var realSpeed = animatorSpeed * stateSpeed * speedMultiplier;
             var actualClipLength = clipLength / realSpeed;
-            
+
             return actualClipLength;
         }
 
@@ -41,31 +48,19 @@ namespace Interfaces
             StateMachine = stateMachine;
         }
 
-        public virtual void EquipWeapon()
-        {
-        }
 
-        protected void EquipWeapon(GameObject newWeapon, Vector3 localPosition, Vector3 localRotation)
+        public void EquipWeapon()
         {
-            if (newWeapon == null || weaponObject == null) return;
+            if (weaponObject == null) return;
             weaponObject.SetActive(true);
-            weaponObject = newWeapon;
-            weaponObject.transform.SetParent(weaponPosition);
-            weaponObject.transform.localPosition = localPosition;
-            weaponObject.transform.localRotation = Quaternion.Euler(localRotation);
         }
 
         public void UnEquipWeapon()
         {
             if (weaponObject == null) return;
-            if (weaponSpawner == null) return;
-            weaponObject.transform.SetParent(weaponSpawner);
-
-            weaponObject.transform.position = weaponSpawner.position;
-            weaponObject.transform.rotation = weaponSpawner.rotation;
-
             weaponObject.SetActive(false);
         }
+
 
         public virtual void SwitchAnimationToEnd()
         {
@@ -75,20 +70,6 @@ namespace Interfaces
         {
         }
 
-        public string WeaponName { get; set; }
-        protected Animator Animator => animator;
-        protected Collider WeaponCollider => weaponCollider;
-
-        public int Damage => damage;
-
-        public Sprite Icon => icon;
-
-        public float AttackSpeed => attackSpeed;
-
-        protected void Interrupt()
-        {
-            InterruptAttack?.Invoke();
-        }
 
         public abstract void OnAttack(InputAction.CallbackContext context);
         public abstract void EndAttack();

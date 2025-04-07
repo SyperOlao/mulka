@@ -11,7 +11,6 @@ namespace Enemy.Movement.StateMachine
 
         public EnemyWarningState(EnemyStateMachine stateMachine) : base(stateMachine)
         {
-            Debug.Log("EnemyWarningState");
         }
 
         public override void Enter()

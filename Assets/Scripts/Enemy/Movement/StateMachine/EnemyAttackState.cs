@@ -13,10 +13,16 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("EnemyAttackState");
         }
 
         public override void Tick()
+        {
+            MoveBehaviour();
+        }
+        
+        
+
+        private void MoveBehaviour()
         {
             if (!IsPlayerInDistance(DistanceToAttack))
             {
@@ -24,14 +30,13 @@ namespace Enemy.Movement.StateMachine
             }
             else
             {
-                StopWalking();          
+                StopWalking();
             }
+
             LookAt(StateMachine.FieldOfView.playerRef.transform.position);
-      
-            Debug.Log(StateMachine.FieldOfView.CanSeePlayer);
+
             if (!StateMachine.FieldOfView.CanSeePlayer)
             {
-                Debug.Log("Timer " + _timer);
                 _timer -= Time.deltaTime;
                 if (_timer <= 0)
                 {
@@ -49,7 +54,7 @@ namespace Enemy.Movement.StateMachine
             var playerPos = StateMachine.FieldOfView.playerRef.transform.position;
             var enemyPos = StateMachine.transform.position;
 
-            var directionToEnemy = (enemyPos - playerPos).normalized; 
+            var directionToEnemy = (enemyPos - playerPos).normalized;
             var targetPositionOnCircle = playerPos + directionToEnemy * DistanceToAttack;
             LookAt(playerPos);
             Move(targetPositionOnCircle);
