@@ -43,6 +43,11 @@ namespace Player.Movement
         {
             SwitchState(new PlayerIdleState(this));
         }
+        
+        public void Death()
+        {
+            SwitchState(new PlayerDeathState(this));
+        }
 
         public void MoveState()
         {

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Player.Weapon
 {
-    public class StickWeapon : Interfaces.Weapon
+    public class OneHandPlayerWeapon : Interfaces.Weapon
     {
         private readonly int _attackHash = Animator.StringToHash(PlayerAnimatorEnum.AttackStick);
         
@@ -19,6 +19,7 @@ namespace Player.Weapon
                 StateMachine.SwitchState(new PlayerMeleeAttack(StateMachine,new [] { WeaponCollider }));
             }
         }
+        
 
         
         public override void SwitchAnimationToEnd()

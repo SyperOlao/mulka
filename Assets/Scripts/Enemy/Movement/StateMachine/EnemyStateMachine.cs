@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DataClasses;
 using Enemy.FOV;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,20 +13,23 @@ namespace Enemy.Movement.StateMachine
     public class EnemyStateMachine : Common.StateMachine.StateMachine
     {
         public Vector3 Velocity;
+        
+        [SerializeField] private FieldOfView fieldOfView;
+        [SerializeField] private Vector3 startPosition;
+        [SerializeField] private int radiusStartFiled;
+        [SerializeField] private EnemyWeapon weapon;
 
         public float PointRadius => 0.1f;
 
         public float MovementSpeed { get; private set; } = 5f;
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
-
-        [SerializeField] private FieldOfView fieldOfView;
-        [SerializeField] private Vector3 startPosition;
-        [SerializeField] private int radiusStartFiled;
         public Vector3 StartPosition => startPosition;
         public int RadiusStartFiled => radiusStartFiled; 
         public FieldOfView FieldOfView => fieldOfView;
         public NavMeshAgent NavMeshAgent { get; private set; }
+
+        public EnemyWeapon Weapon => weapon;
         
         public CapsuleCollider CapsuleCollider { get; private set; }
         

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IPlayer.cs" />
      <Compile Include="Assets\Scripts\Player\Weapon\FistWeapon.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerRunState.cs" />
      <Compile Include="Assets\Scripts\Interaction\CharacterInteraction.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerJumpState.cs" />
      <Compile Include="Assets\Scripts\Common\Enums\EnemyAnimatorEnum.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCharacterMotor.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerDeathState.cs" />
      <Compile Include="Assets\Scripts\Enemy\FOV\FieldOfView.cs" />
      <Compile Include="Assets\Scripts\Common\Timer\Timer.cs" />
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -67,12 +69,13 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\ColorHelper.cs" />
-     <Compile Include="Assets\Scripts\Player\Weapon\StickWeapon.cs" />
      <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\PlayerAttackStateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon\OneHandPlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerBaseAttackState.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\EnemyWeapon.cs" />
      <Compile Include="Assets\Scripts\Common\Utils\RandomPositionHelper.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCondition.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
@@ -96,13 +99,13 @@
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Weapon\OneHandEnemyWeapon.cs" />
      <Compile Include="Assets\Scripts\Dialogs\Data\DialogData\DialogDataDto.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyDyingState.cs" />
      <Compile Include="Assets\Scripts\Common\Enums\ControlEnum.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\StateMachine\PlayerIdleAttackState.cs" />
      <Compile Include="Assets\Scripts\Common\Camera\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Weapon\OneHandWeapon.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FaceCamera\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Common\Enums\PlayerAnimatorEnum.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
@@ -151,6 +154,7 @@
      <Folder Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources" />
+     <Folder Include="Assets\Models\Furniture\steet" />
      <Folder Include="Assets\Models\Weapon\hammer\source\Model\Materials" />
      <None Include="Assets\Resources\Dialogs\CommonDialogs\Dialog1\Dialog1.json" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Debug\Vectorscope.compute" />
@@ -213,6 +217,7 @@
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
      <None Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
+     <Folder Include="Assets\Models\Furniture\steet\Meterials\Materials" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models" />
      <Folder Include="Assets\Resources\Player" />
@@ -489,6 +494,7 @@
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke &amp; Steam Effects\Models" />
      <Folder Include="Assets\UnityTechnologies" />
      <Folder Include="Library\PackageCache\com.unity.postprocessing@3.2.2" />
+     <Folder Include="Assets\Models\Furniture\steet\Meterials" />
      <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\package.json" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
