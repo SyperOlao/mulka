@@ -38,7 +38,7 @@ namespace Enemy.Movement.StateMachine
             }
             else
             {
-                 StateMachine.SwitchState(new EnemyAttackState(StateMachine));
+                 StateMachine.SwitchState(new EnemyAngryState(StateMachine));
             }
         }
         

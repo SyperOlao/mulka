@@ -10,103 +10,69 @@ namespace Interfaces
     [RequireComponent(typeof(MeshCollider))]
     public abstract class EnemyWeapon: MonoBehaviour
     {
-        [SerializeField] private string weaponName;
         [SerializeField] private int damage;
-        [SerializeField] private float attackSpeed;
+        [SerializeField] private float hitInterval = 1f;  
         [SerializeField] private Animator animator;
-        private GameObject _weaponObject;
-        
-        private HashSet<IPlayer> _enemiesInRange = new();
-        private readonly Collider[] _hitColliders = new Collider[10];
-        private readonly Collider[] _playerWeaponColliders;
-        
+
         private Collider _weaponCollider;
-        private AnimatorStateInfo _stateInfo;
+        private readonly HashSet<IPlayer> _alreadyHit = new();
+        private readonly Collider[] _hitsBuffer = new Collider[10];
+        public event Action AttackAnimationEnded;
         public int Damage => damage;
-        protected Animator Animator => animator;
-        protected float AttackSpeed => attackSpeed;
-        
+        private Coroutine _attackRoutine;
+        private string _tag;
         private void Awake()
         {
-            _weaponCollider = GetComponent<MeshCollider>();
+            _weaponCollider = GetComponent<Collider>();
             if (_weaponCollider == null)
-            {
-                Debug.LogError("Missing MeshCollider on weapon!");
-            }
-            _weaponObject = gameObject;
-            _weaponObject.SetActive(true);
-            
+                Debug.LogError("Weapon collider missing!");
         }
         
-        private IEnumerator WaitAndEndAttack()
+        protected void StartAttackPhase(int attackTrigger, string tag)
         {
-            yield return null;
-            
-            var clips = animator.GetCurrentAnimatorClipInfo(1);
-            if (clips.Length == 0)
-            {
-                yield break;
-            }
-
-            var clip = clips[0].clip;
-            var duration = clip.length / animator.speed;
-            yield return new WaitForSeconds(duration);
-            
-            EndAttack();
+            _tag = tag;
+            animator.ResetTrigger(attackTrigger);
+            animator.SetTrigger(attackTrigger);
+            _attackRoutine = StartCoroutine(WaitForAnimationEnd());
         }
 
-        public float GetClipTime()
+     
+        protected void EndAttackPhase(int attackTrigger)
         {
-            var clips = animator.GetCurrentAnimatorClipInfo(1);
-            if (clips.Length == 0)
-            {
-                return 0;
-            }
-
-            var clip = clips[0].clip;
-            return clip.length / animator.speed;
+            AttackAnimationEnded?.Invoke();
+            animator.ResetTrigger(attackTrigger);       
+            _alreadyHit.Clear();
         }
-
         
-        private void CheckForDamageableInBox()
+        private IEnumerator WaitForAnimationEnd()
         {
-          
-            var boxCenter = _weaponCollider.transform.position;
-            var boxSize = _weaponCollider.bounds.size;
+            yield return null;     
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsTag(_tag));
+            while (animator.GetCurrentAnimatorStateInfo(0).IsTag(_tag))
+                yield return null;
 
-            var colliderCount = Physics.OverlapBoxNonAlloc(boxCenter, boxSize / 2, _hitColliders, Quaternion.identity);
+            EndAnimation();
+        }
 
-            for (var i = 0; i < colliderCount; i++)
+        public void CheckForHits()
+        {
+            var bounds = _weaponCollider.bounds;
+            var center = bounds.center;
+            var halfSize = bounds.extents;
+
+            var count = Physics.OverlapBoxNonAlloc(center, halfSize, _hitsBuffer, Quaternion.identity);
+            for (var i = 0; i < count; i++)
             {
-                if (!_hitColliders[i].TryGetComponent(out IPlayer damageable)) continue;
-                if (_enemiesInRange.Add(damageable))
+                if (!_hitsBuffer[i].TryGetComponent<IPlayer>(out var player)) continue;
+                
+                if (_alreadyHit.Add(player))
                 {
-                    TakeDamage(damageable);
+                    player.OnTakeDamage(damage);
                 }
             }
         }
-        
 
-        
-        private void TakeDamage(IPlayer player)
-        {
-            player.OnTakeDamage(damage);
-        }
-        
         public abstract void OnAttack();
-
-        protected virtual void AttackLogic()
-        {
-            CheckForDamageableInBox();
-
-        }
-
-        public abstract void StartAnimation();
         public abstract void EndAnimation();
-        public void EndAttack()
-        {
-            Debug.Log("EndAttack");
-            _enemiesInRange = new HashSet<IPlayer>();
-        }
     }
 }

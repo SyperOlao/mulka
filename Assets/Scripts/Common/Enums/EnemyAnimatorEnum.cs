@@ -9,5 +9,9 @@
         public const string EnemyAttack = "EnemyAttack";
         public const string Speed = "Speed";
         
+        
+        
+        public const string Attack = "Attack";
+        
     }
 }
