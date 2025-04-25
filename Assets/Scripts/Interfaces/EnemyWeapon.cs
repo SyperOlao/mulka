@@ -39,6 +39,8 @@ namespace Interfaces
      
         protected void EndAttackPhase(int attackTrigger)
         {
+            
+            Debug.Log("EndAttackPhase");
             AttackAnimationEnded?.Invoke();
             animator.ResetTrigger(attackTrigger);       
             _alreadyHit.Clear();
@@ -46,14 +48,12 @@ namespace Interfaces
         
         private IEnumerator WaitForAnimationEnd()
         {
-            yield return null;     
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsTag(_tag));
-            while (animator.GetCurrentAnimatorStateInfo(0).IsTag(_tag))
-                yield return null;
+
+            yield return new WaitForSeconds(1.3f);
+         
 
             EndAnimation();
         }
-
         public void CheckForHits()
         {
             var bounds = _weaponCollider.bounds;
