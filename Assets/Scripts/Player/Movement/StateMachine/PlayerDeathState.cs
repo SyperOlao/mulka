@@ -1,4 +1,6 @@
-﻿namespace Player.Movement.StateMachine
+﻿using UnityEngine;
+
+namespace Player.Movement.StateMachine
 {
     public class PlayerDeathState : PlayerBaseState
     {
@@ -8,7 +10,9 @@
 
         public override void Enter()
         {
+            Debug.Log("PlayerDeathState");
             MoveStateMachine.RunAction.Disable();
+            MoveStateMachine.JumpAction.Disable();
         }
 
         public override void Tick()

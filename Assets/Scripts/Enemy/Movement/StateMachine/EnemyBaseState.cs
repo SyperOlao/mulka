@@ -13,7 +13,7 @@ namespace Enemy.Movement.StateMachine
 
         private readonly int _moveSpeedHash = Animator.StringToHash(EnemyAnimatorEnum.MoveSpeed);
         private const float AnimationDampTime = 0.1f;
-        protected float DistanceToAttack { get; } = 1f;
+        protected float DistanceToAttack { get; } = 0.5f;
         
         private Quaternion _initialRotation;
  

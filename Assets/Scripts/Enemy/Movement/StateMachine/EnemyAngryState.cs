@@ -9,11 +9,7 @@ namespace Enemy.Movement.StateMachine
     {
         private const float TimeToForget = 3f;
         private float _timer = 3f;
-
-        private const float AttackDuration = 1f;
-        private float _timerAttack = AttackDuration;
-        private bool _isInAttackPhase = true;
-        private const float CooldownDuration = 5f;
+        
         private float _timerCooldown;
         public EnemyAngryState(EnemyStateMachine stateMachine) : base(stateMachine)
         {

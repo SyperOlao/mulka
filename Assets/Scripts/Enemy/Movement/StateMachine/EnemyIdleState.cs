@@ -5,7 +5,6 @@ namespace Enemy.Movement.StateMachine
     public class EnemyIdleState: EnemyBaseState
     {
         private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
-        private readonly int _idleHash = Animator.StringToHash("IdleBlendTree");
         private readonly int _moveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
         private float _timer;
         private const float RotationAngle = 70.0f;
@@ -34,7 +33,6 @@ namespace Enemy.Movement.StateMachine
         private void AnimateIdle()
         {
             StateMachine.Animator.SetFloat(_moveSpeedHash, 0f, AnimationDampTime,  Time.deltaTime);
-            StateMachine.Animator.SetFloat(_idleHash, 1f);
         }
 
         public override void Tick()
