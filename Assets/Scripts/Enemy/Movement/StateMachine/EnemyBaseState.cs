@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.Enums;
 using Common.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,10 +11,12 @@ namespace Enemy.Movement.StateMachine
     {
         protected readonly EnemyStateMachine StateMachine;
 
-        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
+        private readonly int _moveSpeedHash = Animator.StringToHash(EnemyAnimatorEnum.MoveSpeed);
         private const float AnimationDampTime = 0.1f;
         protected float DistanceToAttack { get; } = 1f;
-
+        
+        private Quaternion _initialRotation;
+ 
         protected EnemyBaseState(EnemyStateMachine stateMachine)
         {
             StateMachine = stateMachine;
@@ -21,8 +24,16 @@ namespace Enemy.Movement.StateMachine
 
         protected void LookAt(Vector3 position)
         {
-            var lookTarget = new Vector3(position.x, StateMachine.transform.position.y, position.z);
-            StateMachine.transform.LookAt(lookTarget);
+            var direction = position - StateMachine.transform.position;
+            direction.y = 0;
+
+            if (direction.sqrMagnitude < 0.0001f) 
+                return; 
+
+    
+            Quaternion targetRot = Quaternion.LookRotation(direction);
+            StateMachine.transform.rotation = targetRot;
+            
         }
 
         protected void Move(Vector3 endPosition)
@@ -54,7 +65,7 @@ namespace Enemy.Movement.StateMachine
         protected bool IsPlayerInDistance(float distanceToAttack)
         {
             return Vector3.Distance(StateMachine.transform.position,
-                StateMachine.FieldOfView.playerRef.transform.position) <= distanceToAttack;
+                StateMachine.PlayerTransform.position) <= distanceToAttack;
         }
     }
 }

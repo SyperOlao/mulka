@@ -60,14 +60,11 @@ namespace Enemy.Movement.StateMachine
             {
                 _timer = TimeToForget;
             }
-
-            LookAt(StateMachine.FieldOfView.playerRef.transform.position);
         }
 
         private void MoveToPlayer()
         {
             var playerPos = StateMachine.PlayerTransform.position;
-            Debug.Log(playerPos.x + playerPos.y + playerPos.z);
             
             var enemyPos = StateMachine.transform.position;
 

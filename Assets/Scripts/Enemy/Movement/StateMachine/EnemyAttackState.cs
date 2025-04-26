@@ -12,7 +12,6 @@ namespace Enemy.Movement.StateMachine
         public override void Enter()
         {
             
-            Debug.Log("EnemyAttackState");
             StateMachine.Weapon.AttackAnimationEnded += OnAttackFinished;
             StateMachine.Weapon.OnAttack();
         }
