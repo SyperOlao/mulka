@@ -23,7 +23,6 @@ namespace Player
         
         public void OnTakeDamage(int damage)
         {
-            Debug.Log("ddddddddddd "+ damage);
             _health.OnTakeDamage(damage);
             if (_health.CurrentHealth <= 0)
             {

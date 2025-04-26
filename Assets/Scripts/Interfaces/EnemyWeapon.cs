@@ -48,10 +48,8 @@ namespace Interfaces
         
         private IEnumerator WaitForAnimationEnd()
         {
-
             yield return new WaitForSeconds(1.3f);
-         
-
+           
             EndAnimation();
         }
         public void CheckForHits()

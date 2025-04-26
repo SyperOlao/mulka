@@ -18,7 +18,6 @@ namespace Enemy.Health
 
         public void OnTakeDamage(int damage)
         {
-            Debug.Log(damage);
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;

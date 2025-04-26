@@ -21,7 +21,6 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("EnemyAngryState");
         }
 
         public override void Tick()
@@ -67,7 +66,9 @@ namespace Enemy.Movement.StateMachine
 
         private void MoveToPlayer()
         {
-            var playerPos = StateMachine.FieldOfView.playerRef.transform.position;
+            var playerPos = StateMachine.PlayerTransform.position;
+            Debug.Log(playerPos.x + playerPos.y + playerPos.z);
+            
             var enemyPos = StateMachine.transform.position;
 
             var directionToEnemy = (enemyPos - playerPos).normalized;

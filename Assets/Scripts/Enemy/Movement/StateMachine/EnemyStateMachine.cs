@@ -28,7 +28,8 @@ namespace Enemy.Movement.StateMachine
         public int RadiusStartFiled => radiusStartFiled; 
         public FieldOfView FieldOfView => fieldOfView;
         public NavMeshAgent NavMeshAgent { get; private set; }
-
+        [SerializeField] private Transform playerTransform;
+        public Transform PlayerTransform => playerTransform;
         public EnemyWeapon Weapon => weapon;
         
         public CapsuleCollider CapsuleCollider { get; private set; }

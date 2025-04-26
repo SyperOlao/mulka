@@ -19,7 +19,6 @@ namespace Enemy.Movement.StateMachine
         
         private void OnAttackFinished()
         {
-            StateMachine.Weapon.AttackAnimationEnded -= OnAttackFinished;
             StateMachine.SwitchState(new EnemyAngryState(StateMachine));
         }
 
@@ -32,7 +31,6 @@ namespace Enemy.Movement.StateMachine
         public override void Exit()
         {
             StateMachine.Weapon.AttackAnimationEnded -= OnAttackFinished;
-            StateMachine.Weapon.EndAnimation();
         }
     }
 }

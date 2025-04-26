@@ -12,7 +12,7 @@ namespace Enemy.Movement.StateMachine
 
         private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
         private const float AnimationDampTime = 0.1f;
-        protected float DistanceToAttack { get; } = 3f;
+        protected float DistanceToAttack { get; } = 1f;
 
         protected EnemyBaseState(EnemyStateMachine stateMachine)
         {
@@ -21,14 +21,13 @@ namespace Enemy.Movement.StateMachine
 
         protected void LookAt(Vector3 position)
         {
-            var direction = position - StateMachine.transform.position;
-            direction.y = 0;
-
-            StateMachine.transform.rotation = Quaternion.LookRotation(direction);
+            var lookTarget = new Vector3(position.x, StateMachine.transform.position.y, position.z);
+            StateMachine.transform.LookAt(lookTarget);
         }
 
         protected void Move(Vector3 endPosition)
         {
+            StateMachine.NavMeshAgent.isStopped = false;
             StateMachine.NavMeshAgent.SetDestination(endPosition);
             LookAt(endPosition);
             AnimateWalk();
@@ -36,7 +35,9 @@ namespace Enemy.Movement.StateMachine
 
         protected void StopWalking()
         {
-            StateMachine.NavMeshAgent.SetDestination(StateMachine.transform.position);
+            StateMachine.NavMeshAgent.isStopped = true;
+            StateMachine.NavMeshAgent.ResetPath();
+            StateMachine.NavMeshAgent.velocity = Vector3.zero;
             StateMachine.Animator.SetFloat(_moveSpeedHash, 0f, AnimationDampTime, Time.deltaTime);
         }
 

@@ -5054,6 +5054,7 @@ MonoBehaviour:
   startPosition: {x: -4.47, y: 0, z: -2.3}
   radiusStartFiled: 10
   weapon: {fileID: 1456897238}
+  playerTransform: {fileID: 1956188069}
 --- !u!195 &907960691
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6901,7 +6902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385775682}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20013711, y: -0.0019595376, z: 0.00040027537, w: 0.9797659}
+  m_LocalRotation: {x: 0.20013714, y: -0.0019595379, z: 0.00040027546, w: 0.9797659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8261,7 +8262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -77, y: 27}
+  m_AnchoredPosition: {x: -99.1, y: 48.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1660399728

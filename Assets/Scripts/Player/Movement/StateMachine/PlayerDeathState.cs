@@ -8,7 +8,7 @@
 
         public override void Enter()
         {
-       
+            MoveStateMachine.RunAction.Disable();
         }
 
         public override void Tick()
