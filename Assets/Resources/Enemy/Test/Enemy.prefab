@@ -918,9 +918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd410455e84a70b095ed596d3fa808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: BaseBallStick
   damage: 40
-  attackSpeed: 1
+  hitInterval: 1
   animator: {fileID: 3551887048972592248}
 --- !u!4 &5499707553635069168 stripped
 Transform:
@@ -1057,9 +1056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd410455e84a70b095ed596d3fa808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Stick
   damage: 20
-  attackSpeed: 1
+  hitInterval: 1
   animator: {fileID: 3551887048972592248}
 --- !u!4 &5333447198894028129 stripped
 Transform:
