@@ -39,7 +39,7 @@ namespace Enemy.Movement.StateMachine
         {                 
             _timer -= Time.deltaTime;
             AnimateIdle();
-            LookAround();
+      
             
             if (StateMachine.FieldOfView.CanSeePlayer)
             {

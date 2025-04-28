@@ -10,5 +10,8 @@
         public const string AttackStick = "AttackStick";
         public const string IsAttack = "IsAttack";
         public const string Speed = "Speed";
+        public const string Death = "Death";
+        public const string Hit = "Hit";
+        
     }
 }
